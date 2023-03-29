@@ -1,0 +1,23 @@
+﻿@page "/vehicles"
+@using MudBlazor
+
+<h3>LaunchVehicles</h3>
+
+
+<MudTable Items="@LaunchVehiclesList" Hover="true" Breakpoint="Breakpoint.Sm">
+    <HeaderContent>
+        <MudTh>Organization</MudTh>
+        <MudTh>Launcher</MudTh>
+        <MudTh>Launches</MudTh>
+        <MudTh>Status</MudTh>
+        <MudTh>PricePerKg</MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd>@context.Organization</MudTd>
+        <MudTd>@context.Launcher</MudTd>
+        <MudTd>@context.Launches</MudTd>
+        <MudTd>@context.Status</MudTd>
+        <MudTd>@context.PricePerKg</MudTd>
+    </RowTemplate>
+</MudTable>
+<MudPagination></MudPagination>
