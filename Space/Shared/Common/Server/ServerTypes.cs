@@ -10,7 +10,9 @@ namespace Space.Shared.Common.Server
             None = 0,
             HttpError = 1,
             ApiError = 2,
-            Ok = 3
+            Ok = 3,
+            ConnectionStringError = 4,
+            WebResourceLoadError = 5,
         }
 
         public enum ServerMessageTypes
