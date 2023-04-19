@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Space.Server.Services\Space.Server.Services.csproj" />
+    <ProjectReference Include="..\..\Space.Server.Sync\Space.Server.Sync.csproj" />
     <ProjectReference Include="..\Client\Space.Client.csproj" />
     <ProjectReference Include="..\Shared\Space.Shared.csproj" />
   </ItemGroup>
