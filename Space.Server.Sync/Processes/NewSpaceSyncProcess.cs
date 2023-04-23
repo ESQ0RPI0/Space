@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Space.Server.Datamodel.Models.Settings;
-using Space.Shared.Api.Types;
+using Space.Shared.Api.ApiResults;
 using System.Net;
 using static Space.Shared.Common.Server.ServerTypes;
 
@@ -26,7 +26,7 @@ namespace Space.Server.Sync.Processes
 
             if (url == null || string.IsNullOrEmpty(url))
             {
-                return ServerErrorCodes.ConnectionStringError;
+                return ServerErrorCodes.ConnectionStringError.WithExtras<bool>("dsdsd");
             }
 
             var web = new HtmlWeb();
@@ -37,7 +37,7 @@ namespace Space.Server.Sync.Processes
                 return ServerErrorCodes.WebResourceLoadError;
             }
 
-            return ServerResult<bool>.CachedTrue;
+            return ServerResults.CachedTrue;
         }
     }
 }
