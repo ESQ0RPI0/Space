@@ -31,6 +31,7 @@ namespace Space.Shared.Api.ApiResults
 
         public static implicit operator ServerResult<T>(T result) => new ServerResult<T>(result);
         public static implicit operator ServerResult<T>(ServerErrorCodes error) => new ServerResult<T>(error);
+        public static implicit operator ServerResult<T>(ServerError error) => new ServerResult<T>(error);
     }
 
     public class ServerError : ServerInformationAbstract
@@ -76,9 +77,7 @@ namespace Space.Shared.Api.ApiResults
         }
         public static ServerResult<T> WithExtras<T>(this ServerErrorCodes code, string message, ServerMessageTypes type = ServerMessageTypes.Error)
         {
-            var error = new ServerError(code, message, type);
-
-            return new ServerResult<T>(error);
+            return new ServerError(code, message, type);
         }
     }
 }
