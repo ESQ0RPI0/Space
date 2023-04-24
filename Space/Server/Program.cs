@@ -1,3 +1,5 @@
+using Space.Server.Extensions;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -5,8 +7,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 builder.Services.AddSwaggerGen();
+builder.Services.AddSettings(builder.Configuration);
 
 builder.Configuration.AddJsonFile("appsettings.json");
+
 
 var app = builder.Build();
 

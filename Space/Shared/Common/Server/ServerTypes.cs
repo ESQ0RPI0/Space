@@ -13,6 +13,7 @@ namespace Space.Shared.Common.Server
             Ok = 3,
             ConnectionStringError = 4,
             WebResourceLoadError = 5,
+            NewSpaceTargetTableNotFound = 6
         }
 
         public enum ServerMessageTypes
