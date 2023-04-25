@@ -18,13 +18,16 @@ namespace Space.Server.Controllers.ExternalResources
             _newSpaceService = service;
             _newSpaceProcess = newSpaceProcess;
         }
+        [HttpGet]
+        [Route("[action]")]
         public IActionResult List([FromQuery] PagingForm form)
         {
             return View();
         }
 
         [HttpGet]
-        public async Task<ServerResult<bool>> RunsSync()
+        [Route("[action]")]
+        public async Task<ServerResult<bool>> RunSync()
         {
             await _newSpaceProcess.Sync();
             return ServerResults.CachedTrue;

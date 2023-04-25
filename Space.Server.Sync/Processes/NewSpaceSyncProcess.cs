@@ -10,11 +10,11 @@ namespace Space.Server.Sync.Processes
 {
     public class NewSpaceSyncProcess
     {
-        private readonly ILogger _logger;
+        private readonly ILogger<NewSpaceSyncProcess> _logger;
         private readonly IOptionsMonitor<ConnectionStrings> _settings;
         private readonly IOptionsMonitor<NewSpacePageMarkings> _newSpacePageMarkings;
 
-        public NewSpaceSyncProcess(ILogger logger,
+        public NewSpaceSyncProcess(ILogger<NewSpaceSyncProcess> logger,
             IOptionsMonitor<ConnectionStrings> settings,
             IOptionsMonitor<NewSpacePageMarkings> newSpacePageMarkings)
         {
@@ -29,7 +29,7 @@ namespace Space.Server.Sync.Processes
 
             if (url == null || string.IsNullOrEmpty(url))
             {
-                return ServerErrorCodes.ConnectionStringError.WithExtras<bool>("Connection string not found");
+                return ServerErrorCodes.ConnectionStringError.WithExtras<bool>("Connection string not found", ServerMessageTypes.Critical);
             }
 
             var web = new HtmlWeb();
@@ -52,6 +52,11 @@ namespace Space.Server.Sync.Processes
             foreach (var row in tableBody.SelectNodes(".//tr"))
             {
                 var columns = row.SelectNodes("//td");
+
+                foreach(var column in columns)
+                {
+                    Console.WriteLine(column);
+                }
             }
 
             return ServerResults.CachedTrue;

@@ -1,4 +1,7 @@
+using Space.Server.Database.Extensions;
 using Space.Server.Extensions;
+using Space.Server.Services.Extensions;
+using Space.Server.Sync.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +11,9 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSettings(builder.Configuration);
+builder.Services.AddNewSpaceDatabaseContext()
+    .AddNewSpaceServices()
+    .AddNewSpaceSync();
 
 builder.Configuration.AddJsonFile("appsettings.json");
 
@@ -28,6 +34,7 @@ else
 
 app.UseHttpsRedirection();
 app.UseBlazorFrameworkFiles();
+app.UseCors(u => u.WithOrigins("https://localhost:44351").AllowAnyHeader().AllowAnyMethod());
 app.UseStaticFiles();
 
 app.UseSwagger();
