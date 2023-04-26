@@ -1,6 +1,6 @@
-﻿namespace Space.Server.Datamodel.Models.Settings
+﻿namespace Space.Server.Datamodel.Common.Settings
 {
-    public class ExternalResourcesOptions
+    public class ConnectionStrings
     {
         public string NewSpaceConnectionString { get; set; }
         public string SpaceFundConnectionString { get; set; }
