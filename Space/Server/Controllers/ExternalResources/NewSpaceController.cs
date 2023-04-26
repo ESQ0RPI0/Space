@@ -2,7 +2,7 @@
 using Space.Client.Forms.Basic;
 using Space.Server.Services.NewSpace;
 using Space.Server.Sync.Processes;
-using Space.Shared.Api.Types;
+using Space.Shared.Api.ApiResults;
 
 namespace Space.Server.Controllers.ExternalResources
 {
@@ -18,16 +18,19 @@ namespace Space.Server.Controllers.ExternalResources
             _newSpaceService = service;
             _newSpaceProcess = newSpaceProcess;
         }
-        public IActionResult List([FromQuery]PagingForm form)
+        [HttpGet]
+        [Route("[action]")]
+        public IActionResult List([FromQuery] PagingForm form)
         {
             return View();
         }
 
         [HttpGet]
-        public async Task<ServerResult<bool>> RunsSync()
+        [Route("[action]")]
+        public async Task<ServerResult<bool>> RunSync()
         {
             await _newSpaceProcess.Sync();
-            return ServerResult<bool>.CachedTrue;
+            return ServerResults.CachedTrue;
         }
     }
 }

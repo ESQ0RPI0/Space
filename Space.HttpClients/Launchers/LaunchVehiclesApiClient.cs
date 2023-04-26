@@ -15,7 +15,7 @@ namespace Space.FrontHttpClient.Launchers
 
         public async Task<List<LaunchVehicleViewModel>> GetLaunchVehicles(PagingForm form)
         {
-            return await _frontApiClient.Get<List<LaunchVehicleViewModel>>("LaunchVehicles/List", form);
+            return await _frontApiClient.Get<List<LaunchVehicleViewModel>>("NewSpace/List", form);
         }
     }
 }

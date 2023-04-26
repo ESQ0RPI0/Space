@@ -1,23 +1,37 @@
 ﻿@page "/vehicles"
 @using MudBlazor
 
-<h3>LaunchVehicles</h3>
+<h3>Launch Vehicles</h3>
 
 
 <MudTable Items="@LaunchVehiclesList" Hover="true" Breakpoint="Breakpoint.Sm">
     <HeaderContent>
         <MudTh>Organization</MudTh>
         <MudTh>Launcher</MudTh>
-        <MudTh>Launches</MudTh>
+        <MudTh>Founded</MudTh>
         <MudTh>Status</MudTh>
-        <MudTh>PricePerKg</MudTh>
+        <MudTh>First launch</MudTh>
+        <MudTh>Launches</MudTh>
+        <MudTh>Cost</MudTh>
+        <MudTh>Perfomance</MudTh>
+        <MudTh>Price Per Kg</MudTh>
+        <MudTh>Founding</MudTh>
+        <MudTh>Logo</MudTh>
+        <MudTh>Photo</MudTh>
     </HeaderContent>
     <RowTemplate>
         <MudTd>@context.Organization</MudTd>
         <MudTd>@context.Launcher</MudTd>
-        <MudTd>@context.Launches</MudTd>
+        <MudTd>@context.Founded</MudTd>
         <MudTd>@context.Status</MudTd>
+        <MudTd>@context.FirstLaunch</MudTd>
+        <MudTd>@context.Launches</MudTd>
+        <MudTd>@context.Cost</MudTd>
+        <MudTd>@context.Perfomance</MudTd>
         <MudTd>@context.PricePerKg</MudTd>
+        <MudTd>@context.Founded</MudTd>
+        <MudTd>@context.Logo</MudTd>
+        <MudTd>@context.Photo</MudTd>
     </RowTemplate>
 </MudTable>
 <MudPagination></MudPagination>
