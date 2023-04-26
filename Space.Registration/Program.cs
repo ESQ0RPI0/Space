@@ -1,7 +1,10 @@
+using Space.Registration.DataBase.Extentions;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddRegistrationContext();
 
 var app = builder.Build();
 

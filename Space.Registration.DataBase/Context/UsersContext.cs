@@ -9,20 +9,9 @@ namespace Space.Registration.DataBase.Context
         public UsersContext(DbContextOptions<UsersContext> options)
             : base(options)
         {
-            Database.EnsureCreated();
+   
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<User>()
-               .HasKey(u => u.Id);
-            modelBuilder.Entity<User>()
-                .Property(u => u.Email)
-                .IsRequired();
-            modelBuilder.Entity<User>()
-                .Property(u => u.PasswordHash)
-                .IsRequired();
 
-        }
     }
 }
