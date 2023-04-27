@@ -33,7 +33,7 @@ namespace Space.Server.Sync.Processes
             }
 
             var web = new HtmlWeb();
-            var doc = web.Load(url);
+            var doc = web.Load(url);//takes too long to get this
 
             if (web.StatusCode != HttpStatusCode.OK)
             {

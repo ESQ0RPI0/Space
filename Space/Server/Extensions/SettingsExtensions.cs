@@ -7,6 +7,7 @@ namespace Space.Server.Extensions
         public static IServiceCollection AddSettings(this IServiceCollection services, IConfiguration configuration)
         {
             services.Configure<NewSpacePageMarkings>(configuration.GetSection(nameof(NewSpacePageMarkings)));
+            services.Configure<ConnectionStrings>(configuration.GetSection(nameof(ConnectionStrings)));
 
             return services;
         }
