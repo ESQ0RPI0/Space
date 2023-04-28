@@ -9,7 +9,7 @@ namespace Space.Registration.DataBase.Context
         public UsersContext(DbContextOptions<UsersContext> options)
             : base(options)
         {
-   
+            
         }
 
 

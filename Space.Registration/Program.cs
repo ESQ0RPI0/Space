@@ -4,8 +4,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddRegistrationContext();
-
+builder.Configuration.AddJsonFile("appsettings.json", false, true);
+var conStr = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddRegistrationContext(conStr);
 var app = builder.Build();
 
 app.MapGet("/", () => "Hello World!");
