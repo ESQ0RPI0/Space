@@ -14,7 +14,9 @@ namespace Space.Registration.Endpoints
         private readonly UsersContext _context;
         private readonly IPasswordHasher<UserRegistrationForm> _passwordHasher;
 
-        public RegistrationController(UsersContext context, IPasswordHasher<UserRegistrationForm> passwordHasher)
+        public RegistrationController(UsersContext context,
+            IPasswordHasher<UserRegistrationForm> passwordHasher
+            )
         {
             _context = context;
             _passwordHasher = passwordHasher;
@@ -31,11 +33,18 @@ namespace Space.Registration.Endpoints
                 Email = user.Email,
                 PasswordHash = hashedPassword,
             };
-
+            
             _context.Users.Add(newUser);
             _context.SaveChanges();
 
             return Ok(newUser);
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult Get()
+        {
+            return Ok("Hello, brave new world!");
         }
 
     }

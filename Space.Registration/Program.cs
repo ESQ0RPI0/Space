@@ -1,12 +1,16 @@
 using Space.Registration.DataBase.Extentions;
+using Space.Server.Services.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
 builder.Services.AddRazorPages();
 builder.Configuration.AddJsonFile("appsettings.json", false, true);
 var conStr = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddRegistrationContext(conStr);
+builder.Services.AddRegistrationServices();
+
 var app = builder.Build();
 
 app.MapGet("/", () => "Hello World!");
@@ -27,5 +31,10 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapRazorPages();
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers(); 
+});
 
 app.Run();

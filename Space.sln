@@ -33,7 +33,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Space.Registration", "Space
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Space.Registration.DataBase", "Space.Registration.DataBase\Space.Registration.DataBase.csproj", "{8FE32716-13D7-4392-86DB-772FF1F3992C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Space.Forms", "Space.Forms\Space.Forms.csproj", "{9B05B668-DDEA-414F-B91D-53FE98224DE4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Space.Forms", "Space.Forms\Space.Forms.csproj", "{9B05B668-DDEA-414F-B91D-53FE98224DE4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
