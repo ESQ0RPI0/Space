@@ -1,5 +1,24 @@
-﻿<h3>Component</h3>
+﻿@page "/registration"
+@using Space.Forms.Registration 
+@inject HttpClient httpClient
+@using MudBlazor
 
-@code {
 
-}
+
+<h3>Registration</h3>
+<MudForm>
+    <MudTextField @bind-Value="userRegistrationForm.Email" Label="Email" />
+<MudTextField @bind-Value="userRegistrationForm.Password" Label="Password" Type="InputType.Password" />
+
+    <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="RegisterAsync">
+        Register
+    </MudButton>
+</MudForm>
+
+
+
+
+
+
+
+

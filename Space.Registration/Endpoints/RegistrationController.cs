@@ -40,12 +40,5 @@ namespace Space.Registration.Endpoints
             return Ok(newUser);
         }
 
-        [HttpGet]
-        [AllowAnonymous]
-        public IActionResult Get()
-        {
-            return Ok("Hello, brave new world!");
-        }
-
     }
 }

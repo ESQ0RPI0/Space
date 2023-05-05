@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Space.Datamodel\Space.Server.Datamodel.csproj" />
+    <ProjectReference Include="..\..\Space.Forms\Space.Forms.csproj" />
     <ProjectReference Include="..\..\Space.Front.Datamodel\Space.Client.Datamodel.csproj" />
     <ProjectReference Include="..\..\Space.HttpClients\Space.FrontHttpClient.csproj" />
     <ProjectReference Include="..\Shared\Space.Shared.csproj" />
