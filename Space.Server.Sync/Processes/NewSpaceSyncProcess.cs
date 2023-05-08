@@ -1,6 +1,8 @@
-﻿using HtmlAgilityPack;
+﻿using AutoMapper;
+using HtmlAgilityPack;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Space.Backend.Datamodel.Models.NewSpace;
 using Space.Server.Datamodel.Common.Settings;
 using Space.Shared.Api.ApiResults;
 using System.Net;
@@ -13,14 +15,17 @@ namespace Space.Server.Sync.Processes
         private readonly ILogger<NewSpaceSyncProcess> _logger;
         private readonly IOptionsMonitor<ConnectionStrings> _settings;
         private readonly IOptionsMonitor<NewSpacePageMarkings> _newSpacePageMarkings;
+        private readonly IMapper _mapper;
 
         public NewSpaceSyncProcess(ILogger<NewSpaceSyncProcess> logger,
             IOptionsMonitor<ConnectionStrings> settings,
-            IOptionsMonitor<NewSpacePageMarkings> newSpacePageMarkings)
+            IOptionsMonitor<NewSpacePageMarkings> newSpacePageMarkings,
+            IMapper mapper)
         {
             _logger = logger;
             _settings = settings;
             _newSpacePageMarkings = newSpacePageMarkings;
+            _mapper = mapper;
         }
 
         public async Task<ServerResult<bool>> Sync()
@@ -51,12 +56,12 @@ namespace Space.Server.Sync.Processes
 
             foreach (var row in tableBody.SelectNodes(".//tr"))
             {
-                var columns = row.SelectNodes("//td");
+                if (row.ChildNodes.Any(u => u.Name == "th"))
+                    continue;
 
-                foreach(var column in columns)
-                {
-                    Console.WriteLine(column);
-                }
+                var columns = row.SelectNodes(".//td");
+
+                var mappedRow = _mapper.Map<NewSpaceListModel>(columns);
             }
 
             return ServerResults.CachedTrue;

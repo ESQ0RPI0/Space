@@ -11,6 +11,7 @@ builder.Services.AddRazorPages();
 builder.Configuration.AddJsonFile("appsettings.json");
 
 builder.Services.AddSwaggerGen();
+builder.Services.AddAutoMapper(typeof(NewSpaceMappingProfile));
 builder.Services.AddSettings(builder.Configuration);
 var databaseConnectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 

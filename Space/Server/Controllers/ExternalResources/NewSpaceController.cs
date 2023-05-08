@@ -13,14 +13,15 @@ namespace Space.Server.Controllers.ExternalResources
         private readonly NewSpaceService _newSpaceService;
         private readonly NewSpaceSyncProcess _newSpaceProcess;
 
-        public NewSpaceController(NewSpaceService service, NewSpaceSyncProcess newSpaceProcess)
+        public NewSpaceController(NewSpaceService service,
+            NewSpaceSyncProcess newSpaceProcess)
         {
             _newSpaceService = service;
             _newSpaceProcess = newSpaceProcess;
         }
         [HttpGet]
         [Route("[action]")]
-        public IActionResult List([FromQuery] PagingForm form)
+        public async Task<IActionResult> List([FromQuery] PagingForm form)
         {
             return View();
         }
