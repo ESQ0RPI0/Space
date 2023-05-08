@@ -9,7 +9,7 @@ namespace Space.Registration.Endpoints
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class RegistrationController : ControllerBase
+    public class RegistrationController : Controller
     {
         private readonly UsersContext _context;
         private readonly IPasswordHasher<UserRegistrationForm> _passwordHasher;
@@ -24,7 +24,7 @@ namespace Space.Registration.Endpoints
 
         [HttpPost]
         [AllowAnonymous]
-        public IActionResult Register([FromBody]UserRegistrationForm user)
+        public async Task<IActionResult> Register([FromBody]UserRegistrationForm user)
         {
             var hashedPassword = _passwordHasher.HashPassword(user, user.Password);
 
@@ -35,9 +35,9 @@ namespace Space.Registration.Endpoints
             };
             
             _context.Users.Add(newUser);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
 
-            return Ok(true);
+            return Ok();
         }
 
     }
