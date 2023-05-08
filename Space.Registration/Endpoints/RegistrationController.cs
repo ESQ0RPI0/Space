@@ -37,7 +37,7 @@ namespace Space.Registration.Endpoints
             _context.Users.Add(newUser);
             _context.SaveChanges();
 
-            return Ok(newUser);
+            return Ok(true);
         }
 
     }

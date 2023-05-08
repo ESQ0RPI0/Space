@@ -11,7 +11,21 @@ var conStr = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddRegistrationContext(conStr);
 builder.Services.AddRegistrationServices();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy( "SpacePolicy",
+        builder =>
+        {
+            builder.WithOrigins("https://localhost:44351")
+                                .AllowAnyHeader()
+                                .AllowAnyMethod()
+                                .AllowCredentials();
+        });
+});
+
 var app = builder.Build();
+
+app.UseCors("SpacePolicy");
 
 app.MapGet("/", () => "Hello World!");
 
