@@ -23,7 +23,7 @@ namespace Space.Server.Controllers.ExternalResources
         [Route("[action]")]
         public async Task<IActionResult> List([FromQuery] PagingForm form)
         {
-            return View();
+            return Json(true);
         }
 
         [HttpGet]
