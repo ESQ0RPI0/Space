@@ -1,9 +1,12 @@
-﻿using static Space.Shared.Common.LaunchVehicleEnums;
+﻿using System.ComponentModel.DataAnnotations;
+using static Space.Shared.Common.LaunchVehicleEnums;
 
-namespace Space.Backend.Datamodel.Models.NewSpace
+namespace Space.Server.Datamodel.DatabaseModels.NewSpace
 {
-    public class NewSpaceListModel
+    public class NewSpaceExternalListItemDbModel
     {
+        [Key]
+        public int Id { get; set; }
         public string Organization { get; set; }
         public string? Launcher { get; set; }
         public int? Founded { get; set; }

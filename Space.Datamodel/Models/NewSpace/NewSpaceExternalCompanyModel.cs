@@ -2,7 +2,7 @@
 
 namespace Space.Server.Datamodel.Models.NewSpace
 {
-    public class NewSpaceCompanyModel
+    public class NewSpaceExternalCompanyModel
     {
         public string Name { get; set; }
         public string Logo { get; set; }

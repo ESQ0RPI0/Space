@@ -4,6 +4,8 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Space.Backend.Datamodel.Models.NewSpace;
 using Space.Server.Datamodel.Common.Settings;
+using Space.Server.Datamodel.DatabaseModels.NewSpace;
+using Space.Server.Services.NewSpace;
 using Space.Shared.Api.ApiResults;
 using System.Net;
 using static Space.Shared.Common.Server.ServerTypes;
@@ -16,16 +18,19 @@ namespace Space.Server.Sync.Processes
         private readonly IOptionsMonitor<ConnectionStrings> _settings;
         private readonly IOptionsMonitor<NewSpacePageMarkings> _newSpacePageMarkings;
         private readonly IMapper _mapper;
+        private readonly NewSpaceService _newSpaceService;
 
         public NewSpaceSyncProcess(ILogger<NewSpaceSyncProcess> logger,
             IOptionsMonitor<ConnectionStrings> settings,
             IOptionsMonitor<NewSpacePageMarkings> newSpacePageMarkings,
-            IMapper mapper)
+            IMapper mapper,
+            NewSpaceService newSpaceService)
         {
             _logger = logger;
             _settings = settings;
             _newSpacePageMarkings = newSpacePageMarkings;
             _mapper = mapper;
+            _newSpaceService = newSpaceService;
         }
 
         public async Task<ServerResult<bool>> Sync()
@@ -61,7 +66,8 @@ namespace Space.Server.Sync.Processes
 
                 var columns = row.SelectNodes(".//td");
 
-                var mappedRow = _mapper.Map<NewSpaceListModel>(columns);
+                var mappedRow = _mapper.Map<NewSpaceExternalListItemModel>(columns);
+                await _newSpaceService.AddExternalListItem(mappedRow);
             }
 
             return ServerResults.CachedTrue;

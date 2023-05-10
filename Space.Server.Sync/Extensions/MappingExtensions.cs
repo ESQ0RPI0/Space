@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using HtmlAgilityPack;
 using Space.Backend.Datamodel.Models.NewSpace;
+using Space.Server.Datamodel.DatabaseModels.NewSpace;
 using static Space.Shared.Common.LaunchVehicleEnums;
 
 namespace Space.Server.Sync.Extensions
@@ -9,7 +10,7 @@ namespace Space.Server.Sync.Extensions
     {
         public NewSpaceMappingProfile()
         {
-            CreateMap<HtmlNodeCollection, NewSpaceListModel>()
+            CreateMap<HtmlNodeCollection, NewSpaceExternalListItemModel>()
                 .ForMember(u => u.Organization, opts => opts.MapFrom(v => v[0].InnerText.ToString()))
                 .ForMember(u => u.Launcher, opts => opts.MapFrom(v => v[1].InnerText.ToString()))
                 .ForMember(u => u.Founded, opts => opts.MapFrom(v => int.Parse(v[2].InnerText)))
@@ -22,6 +23,8 @@ namespace Space.Server.Sync.Extensions
                 .ForMember(u => u.Funding, opts => opts.MapFrom(v => v[9].InnerText))
                 .ForMember(u => u.Logo, opts => opts.MapFrom(v => v[10].FirstChild.InnerText))
                 .ForMember(u => u.Photo, opts => opts.MapFrom(v => v[11].FirstChild.InnerText));
+
+            CreateMap<NewSpaceExternalListItemModel, NewSpaceExternalListItemDbModel>();
         }
     }
 }

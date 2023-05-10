@@ -12,5 +12,6 @@ namespace Space.Server.Database.Context
 
         public DbSet<NewSpaceLaunchVehicleDbModel> NewSpaceLaunchVehicles { get; set; }
         public DbSet<NewSpaceCompanyDbModel> NewSpaceCompanies { get; set;}
+        public DbSet<NewSpaceExternalListItemDbModel> NewSpaceExternalListItems { get; set; }
     }
 }
