@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Space.Backend.Datamodel.Models.NewSpace;
 using Space.Client.Forms.Basic;
 using Space.Server.Services.NewSpace;
 using Space.Server.Sync.Processes;
@@ -21,9 +22,9 @@ namespace Space.Server.Controllers.ExternalResources
         }
         [HttpGet]
         [Route("[action]")]
-        public async Task<IActionResult> List([FromQuery] PagingForm form)
+        public async Task<ServerResult<List<NewSpaceExternalListItemModel>>> List([FromQuery] PagingForm form)
         {
-            return Json(true);
+            return await _newSpaceService.GetList(form);
         }
 
         [HttpGet]

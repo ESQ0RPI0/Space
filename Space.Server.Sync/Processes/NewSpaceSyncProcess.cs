@@ -33,7 +33,7 @@ namespace Space.Server.Sync.Processes
             _newSpaceService = newSpaceService;
         }
 
-        public async Task<ServerResult<bool>> Sync()
+        public async Task<ServerResult<bool>> Sync() //partiate to subprocesses
         {
             var url = _settings.CurrentValue.NewSpaceConnectionString;
 
