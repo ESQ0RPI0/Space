@@ -1,10 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Space.Forms.Registration;
-using Space.Registration.DataBase.Context;
-using Space.Server.Datamodel.DatabaseModels.Registration;
+using Space.Server.Services.Registration;
+using Space.Shared.Api.ApiResults;
 
 namespace Space.Registration.Endpoints
 {
@@ -12,44 +10,28 @@ namespace Space.Registration.Endpoints
     [ApiController]
     public class RegistrationController : Controller
     {
-        private readonly UsersContext _context;
-        private readonly IPasswordHasher<UserRegistrationForm> _passwordHasher;
+        private readonly UserAuthorizationService _userAuthorizationService;
 
-        public RegistrationController(UsersContext context,
-            IPasswordHasher<UserRegistrationForm> passwordHasher
-            )
+        public RegistrationController(UserAuthorizationService userAuthorizationService)
         {
-            _context = context;
-            _passwordHasher = passwordHasher;
+            _userAuthorizationService = userAuthorizationService;
         }
 
         [HttpPost]
         [AllowAnonymous]
-        public async Task<IActionResult> Register([FromBody]UserRegistrationForm user)
+        public async Task<ServerResult<bool>> Register([FromBody] UserRegistrationForm user)
         {
-            if (!await IsEmailUnique(user.Email))
-            {
-                return BadRequest("Email is already in use.");
-            }
+            var result = await _userAuthorizationService.Registration(user);
 
-            var hashedPassword = _passwordHasher.HashPassword(user, user.Password);
-
-            var newUser = new User
-            {
-                Email = user.Email,
-                PasswordHash = hashedPassword,
-            };
-            
-            _context.Users.Add(newUser);
-            await _context.SaveChangesAsync();
-
-            return Ok("super");
+            return result;
         }
 
-        private async Task<bool> IsEmailUnique(string email)
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<ServerResult<bool>> IsEmailUnique([FromBody] string email)
         {
-            return await _context.Users.AllAsync(u => u.Email != email);
+            var result = await _userAuthorizationService.IsEmailUnique(email);
+            return result;
         }
-
     }
 }

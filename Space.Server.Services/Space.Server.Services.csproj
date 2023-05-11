@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Space.Forms\Space.Forms.csproj" />
+    <ProjectReference Include="..\Space.Registration.DataBase\Space.Registration.DataBase.csproj" />
     <ProjectReference Include="..\Space.Server.Database\Space.Server.Database.csproj" />
   </ItemGroup>
 

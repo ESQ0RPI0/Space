@@ -14,7 +14,7 @@ namespace Space.Client.Pages
   
         public async Task RegisterAsync()
         {
-            var result = await httpClient.Post<string, UserRegistrationForm>("https://localhost:7272/api/registration", userRegistrationForm);
+            var result = await httpClient.Post<string, UserRegistrationForm>("https://localhost:7272/api/Registration/Register", userRegistrationForm);
 
 
         }
