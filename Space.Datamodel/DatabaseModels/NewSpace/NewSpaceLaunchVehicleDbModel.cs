@@ -6,5 +6,6 @@ namespace Space.Server.Datamodel.DatabaseModels.NewSpace
     {
         [Key]
         public int Id { get; set; }
+
     }
 }
