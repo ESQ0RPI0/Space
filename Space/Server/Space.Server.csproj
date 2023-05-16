@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Space.Registration\Space.Registration.csproj" />
     <ProjectReference Include="..\..\Space.Server.Services\Space.Server.Services.csproj" />
     <ProjectReference Include="..\..\Space.Server.Sync\Space.Server.Sync.csproj" />
     <ProjectReference Include="..\Client\Space.Client.csproj" />

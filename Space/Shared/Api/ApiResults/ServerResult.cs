@@ -8,7 +8,7 @@ namespace Space.Shared.Api.ApiResults
     {
         public T Result { get; init; }
         public ServerInformationAbstract Information { get; init; }
-        public bool IsCorrect => Information == null || !Information.Code.HasValue || Information.Code == ServerErrorCodes.None || Information.Code == ServerErrorCodes.Ok;
+        public bool IsCorrect => Information == null || !Information.Code.HasValue || Information.Code == ServerErrorCodes.None;
 
         public ServerResult()
         {
