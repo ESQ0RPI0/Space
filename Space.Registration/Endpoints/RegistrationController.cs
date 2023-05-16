@@ -19,6 +19,7 @@ namespace Space.Registration.Endpoints
 
         [HttpPost]
         [AllowAnonymous]
+        [Route("[action]")]
         public async Task<ServerResult<bool>> Register([FromBody] UserRegistrationForm user)
         {
             var result = await _userAuthorizationService.Registration(user);
@@ -28,6 +29,7 @@ namespace Space.Registration.Endpoints
 
         [HttpPost]
         [AllowAnonymous]
+        [Route("[action]")]
         public async Task<ServerResult<bool>> IsEmailUnique([FromBody] string email)
         {
             var result = await _userAuthorizationService.IsEmailUnique(email);
