@@ -11,10 +11,12 @@ namespace Space.Backend.Datamodel.Models.NewSpace
         public char? ItemCurrency { get; set; }
         public string? FirstLaunch { get; set; }
         public int Launches { get; set; }
+        public bool IsCostDefined { get; set; }
         public decimal? Cost { get; set; }
         public char? CostMultiplier { get; set; }
         public int? Perfomance { get; set; }
         public decimal? PricePerKg { get; set; }
+        public bool IsFundingDefined { get; set; }
         public string Funding { get; set; }
         public char? FundingMultiplier { get; set; }
         public string? Logo { get; set; }
