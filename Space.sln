@@ -35,6 +35,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Space.Registration.DataBase
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Space.Forms", "Space.Forms\Space.Forms.csproj", "{9B05B668-DDEA-414F-B91D-53FE98224DE4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Space.Client.Services", "Space.Client.Services\Space.Client.Services.csproj", "{17A08C7D-11BC-4BAD-9B08-F74D43723A4C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -101,6 +103,10 @@ Global
 		{9B05B668-DDEA-414F-B91D-53FE98224DE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B05B668-DDEA-414F-B91D-53FE98224DE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B05B668-DDEA-414F-B91D-53FE98224DE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17A08C7D-11BC-4BAD-9B08-F74D43723A4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17A08C7D-11BC-4BAD-9B08-F74D43723A4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17A08C7D-11BC-4BAD-9B08-F74D43723A4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17A08C7D-11BC-4BAD-9B08-F74D43723A4C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

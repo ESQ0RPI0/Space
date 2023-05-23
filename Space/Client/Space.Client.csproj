@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Space.Client.Services\Space.Client.Services.csproj" />
     <ProjectReference Include="..\..\Space.Datamodel\Space.Server.Datamodel.csproj" />
     <ProjectReference Include="..\..\Space.Forms\Space.Forms.csproj" />
     <ProjectReference Include="..\..\Space.Front.Datamodel\Space.Client.Datamodel.csproj" />

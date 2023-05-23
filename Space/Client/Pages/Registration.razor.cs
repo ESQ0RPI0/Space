@@ -17,7 +17,7 @@ namespace Space.Client.Pages
         {
             var result = await httpClient.Post<ServerResult<bool>, UserRegistrationForm>("https://localhost:7272/api/Registration/Register", userRegistrationForm);
 
-
+            snackbar.ShowMessage(result);
         }
     }
 }
