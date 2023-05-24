@@ -6,6 +6,11 @@
         {
             Unknown = 0,
             Operational = 1,
+            Retired = 2,
+            Development = 3,
+            Concept = 4,
+            Dormant = 5,
+            Cancelled = 6,
             _ = 255
         }
         public enum LaunchVehicleType : byte

@@ -17,7 +17,7 @@ namespace Space.Server.Datamodel.DatabaseModels.NewSpace
         public int? Perfomance { get; set; }
         public decimal? PricePerKg { get; set; }
         public decimal? Funding { get; set; }
-        public bool? HasFunding { get; set; }
+        public bool HasFunding { get; set; }
         public string? Logo { get; set; }
         public string? Photo { get; set; }
     }

@@ -22,8 +22,8 @@ namespace Space.Server.Services.NewSpace
         {
             var result = _mapper.Map<NewSpaceExternalListItemDbModel>(item);
 
-            _dc.NewSpaceExternalListItems.Add(result);
-            await _dc.SaveChangesAsync();
+            //_dc.NewSpaceExternalListItems.Add(result);
+            //await _dc.SaveChangesAsync();
 
             return ServerResults.CachedTrue;
         }
