@@ -22,9 +22,8 @@ namespace Space.Server.Services.NewSpace
         public async Task<ServerResult<bool>> AddExternalListItem(NewSpaceExternalListItemModel item)
         {
             var result = _mapper.Map<NewSpaceExternalListItemDbModel>(item);
-            Console.WriteLine($"Processing {result.Launcher}");
-            //_dc.NewSpaceExternalListItems.Add(result);
-            //await _dc.SaveChangesAsync();
+            _dc.NewSpaceExternalListItems.Add(result);
+            await _dc.SaveChangesAsync();
 
             return ServerResults.CachedTrue;
         }
