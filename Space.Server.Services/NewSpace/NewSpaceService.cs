@@ -5,6 +5,7 @@ using Space.Client.Forms.Basic;
 using Space.Server.Database.Context;
 using Space.Server.Datamodel.DatabaseModels.NewSpace;
 using Space.Shared.Api.ApiResults;
+using System.Diagnostics;
 
 namespace Space.Server.Services.NewSpace
 {
@@ -21,7 +22,7 @@ namespace Space.Server.Services.NewSpace
         public async Task<ServerResult<bool>> AddExternalListItem(NewSpaceExternalListItemModel item)
         {
             var result = _mapper.Map<NewSpaceExternalListItemDbModel>(item);
-
+            Console.WriteLine($"Processing {result.Launcher}");
             //_dc.NewSpaceExternalListItems.Add(result);
             //await _dc.SaveChangesAsync();
 

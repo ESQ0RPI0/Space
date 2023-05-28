@@ -10,7 +10,8 @@ namespace Space.Server.Sync.Extensions
     {
         private static char[] MoneyMultipliers = new char[]{'M', 'B'};
         private static Dictionary<char, int> MoneyMultipliersMap = new Dictionary<char, int>() { { 'M', 1000000 }, { 'B', 1000000000 } };
-        private static char DefaultMultiplier = '$';
+        private static char DefaultCurrency = '$';
+        private static char[] StatusRelatedParasiteMarks = new char[] { '?' };
 
         public NewSpaceMappingProfile()
         {
@@ -18,15 +19,15 @@ namespace Space.Server.Sync.Extensions
                 .ForMember(u => u.Organization, opts => opts.MapFrom(v => v[0].InnerText))
                 .ForMember(u => u.Launcher, opts => opts.MapFrom(v => v[1].InnerText))
                 .ForMember(u => u.Founded, opts => opts.MapFrom(v => int.Parse(v[2].InnerText)))
-                .ForMember(u => u.ItemCurrency, opts => opts.MapFrom(v => DefaultMultiplier))
-                .ForMember(u => u.Status, opts => opts.MapFrom(v =>  v[3].InnerText))
+                .ForMember(u => u.ItemCurrency, opts => opts.MapFrom(v => DefaultCurrency))
+                .ForMember(u => u.Status, opts => opts.MapFrom(v =>  new string(v[3].InnerText.Where(z => !StatusRelatedParasiteMarks.Contains(z)).ToArray())))
                 .ForMember(u => u.FirstLaunch, opts => opts.MapFrom(v => v[4].InnerText))
                 .ForMember(u => u.Launches, opts => opts.MapFrom(v => v[5].InnerText))
                 .ForMember(u => u.Cost, opts => {
                     opts.PreCondition(v => v[6].InnerText.Any(z => char.IsDigit(z)));
                     opts.MapFrom(v => string.Join("", v[6].InnerText.Where(z => char.IsDigit(z))));
                 })
-                .ForMember(u => u.CostMultiplier, opts => opts.MapFrom(v => v[6].InnerText.FirstOrDefault(z => MoneyMultipliers.Contains(z), DefaultMultiplier)))
+                .ForMember(u => u.CostMultiplier, opts => opts.MapFrom(v => v[6].InnerText.FirstOrDefault(z => MoneyMultipliers.Contains(z), DefaultCurrency)))
                 .ForMember(u => u.Perfomance, opts => {
                     opts.PreCondition(v => v[7].InnerText.Any(z => char.IsDigit(z)));
                     opts.MapFrom(v => string.Join("", v[7].InnerText.TakeWhile(z => char.IsDigit(z))));
@@ -37,7 +38,7 @@ namespace Space.Server.Sync.Extensions
                     opts.PreCondition(v => v[9].InnerText.Any(z => char.IsDigit(z)));
                     opts.MapFrom(v => new string(v[9].InnerText.Trim().Where(z => char.IsDigit(z)).ToArray())); 
                 })
-                .ForMember(u => u.FundingMultiplier, opts => opts.MapFrom(v => v[9].InnerText.FirstOrDefault(z => MoneyMultipliers.Contains(z), DefaultMultiplier)))
+                .ForMember(u => u.FundingMultiplier, opts => opts.MapFrom(v => v[9].InnerText.FirstOrDefault(z => MoneyMultipliers.Contains(z), DefaultCurrency)))
                 .ForMember(u => u.Logo, opts => opts.MapFrom(v => v[10].FirstChild.GetAttributeValue("href", "")))
                 .ForMember(u => u.Photo, opts => opts.MapFrom(v => v[11].FirstChild.GetAttributeValue("href", "")));
 
