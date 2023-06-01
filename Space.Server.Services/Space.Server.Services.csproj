@@ -12,11 +12,13 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="12.0.1" />
+	  <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="7.0.5" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Space.Front.Forms\Space.Client.Forms.csproj" />
     <ProjectReference Include="..\Space.Server.Database\Space.Server.Database.csproj" />
+	  <ProjectReference Include="..\Space.Registration.DataBase\Space.Registration.DataBase.csproj" />
   </ItemGroup>
 
 </Project>

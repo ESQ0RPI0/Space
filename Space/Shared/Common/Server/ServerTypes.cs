@@ -5,18 +5,19 @@ namespace Space.Shared.Common.Server
 {
     public class ServerTypes
     {
-        public enum ServerErrorCodes
+        public enum ServerErrorCodes: int
         {
             None = 0,
             HttpError = 1,
             ApiError = 2,
-            Ok = 3,
+            InvalidData = 3,
             ConnectionStringError = 4,
             WebResourceLoadError = 5,
-            NewSpaceTargetTableNotFound = 6
+            NewSpaceTargetTableNotFound = 6,
+            EmailAlreadyInUse = 7,
         }
 
-        public enum ServerMessageTypes
+        public enum ServerMessageTypes : byte
         {
             None = 0,
             Information = 1,
