@@ -5,17 +5,19 @@ using Space.Server.Sync.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
-builder.Services.AddSwaggerGen();
-builder.Services.AddSettings(builder.Configuration);
-builder.Services.AddNewSpaceDatabaseContext()
-    .AddNewSpaceServices()
-    .AddNewSpaceSync();
 
 builder.Configuration.AddJsonFile("appsettings.json");
+
+builder.Services.AddSwaggerGen();
+builder.Services.AddAutoMapper(typeof(NewSpaceMappingProfile));
+builder.Services.AddSettings(builder.Configuration);
+var databaseConnectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+builder.Services.AddNewSpaceDatabaseContext(databaseConnectionString)
+    .AddNewSpaceServices()
+    .AddNewSpaceSync();
 
 
 var app = builder.Build();
@@ -34,6 +36,8 @@ else
 
 app.UseHttpsRedirection();
 app.UseBlazorFrameworkFiles();
+app.UseAuthentication();
+app.UseAuthorization();
 app.UseCors(u => u.WithOrigins("https://localhost:44351").AllowAnyHeader().AllowAnyMethod());
 app.UseStaticFiles();
 

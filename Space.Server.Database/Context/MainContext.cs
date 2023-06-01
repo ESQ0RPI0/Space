@@ -4,9 +4,9 @@ namespace Space.Server.Database.Context
 {
     public class MainContext : DbContext
     {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public MainContext(DbContextOptions<MainContext> options) : base(options)
         {
-            base.OnConfiguring(optionsBuilder);
+            
         }
     }
 }

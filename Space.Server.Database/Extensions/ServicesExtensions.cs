@@ -6,9 +6,9 @@ namespace Space.Server.Database.Extensions
 {
     public static class ServicesExtensions
     {
-        public static IServiceCollection AddNewSpaceDatabaseContext(this IServiceCollection services)
+        public static IServiceCollection AddNewSpaceDatabaseContext(this IServiceCollection services, string connectionString)
         {
-            services.AddDbContext<NewSpaceContext>(options => options.UseSqlServer("Server=(localdb)/MSSQLLocalDB;Database=SpaceDb;Trusted_Connection=True;"));
+            services.AddDbContext<NewSpaceContext>(options => options.UseSqlServer(connectionString));
 
             return services;
         }
