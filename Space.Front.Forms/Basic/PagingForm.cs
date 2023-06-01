@@ -1,5 +1,4 @@
-﻿using Space.Front.Forms.Attributes;
-using Space.Front.Forms.Basic;
+﻿using Space.Client.Forms.Attributes;
 
 namespace Space.Client.Forms.Basic
 {

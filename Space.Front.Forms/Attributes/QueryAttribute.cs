@@ -1,6 +1,4 @@
-﻿using System.Diagnostics.Contracts;
-
-namespace Space.Front.Forms.Attributes
+﻿namespace Space.Client.Forms.Attributes
 {
     public class QueryAttribute : Attribute
     {

@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
-using Space.Front.Forms.Basic;
+using Space.Client.Forms.Basic;
 
 namespace Space.HttpClients.Common
 {
