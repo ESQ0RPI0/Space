@@ -7,7 +7,7 @@ namespace Space.HttpClients.Common
     {
         public static string ResolveForFront(string uri, QueryModelBase form)
         {
-            var result = uri + QueryString.Create(form.GetParameters().ToDictionary(u => u.Key, v => v.Value));
+            var result = uri + QueryString.Create(form.GetParameters());
 
             return result;
         }
