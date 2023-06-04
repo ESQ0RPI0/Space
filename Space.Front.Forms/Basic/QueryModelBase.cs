@@ -1,6 +1,6 @@
-﻿using Space.Front.Forms.Attributes;
+﻿using Space.Client.Forms.Attributes;
 
-namespace Space.Front.Forms.Basic
+namespace Space.Client.Forms.Basic
 {
     public abstract class QueryModelBase
     {
@@ -15,10 +15,10 @@ namespace Space.Front.Forms.Basic
                 yield break;
             }
 
-            var mappedProperties = propWithAttribute.Select(u => new 
-            { 
+            var mappedProperties = propWithAttribute.Select(u => new
+            {
                 PropertyValue = u.GetValue(this),
-                Attribute = u.GetCustomAttributes(typeof(QueryAttribute), false).First() as QueryAttribute 
+                Attribute = u.GetCustomAttributes(typeof(QueryAttribute), false).First() as QueryAttribute
             });
 
             foreach (var property in mappedProperties)

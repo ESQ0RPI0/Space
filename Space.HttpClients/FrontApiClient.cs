@@ -1,4 +1,4 @@
-﻿using Space.Front.Forms.Basic;
+﻿using Space.Client.Forms.Basic;
 using Space.HttpClients.Common;
 using System.Net.Http.Json;
 using System.Text.Json;

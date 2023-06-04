@@ -1,18 +1,25 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>$(DefineConstants);TRACE;DEBUG;NET;NET7_0;NETCOREAPP</DefineConstants>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="12.0.1" />
+	  <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="7.0.5" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Space.Forms\Space.Forms.csproj" />
     <ProjectReference Include="..\Space.Front.Forms\Space.Client.Forms.csproj" />
     <ProjectReference Include="..\Space.Server.Database\Space.Server.Database.csproj" />
+	  <ProjectReference Include="..\Space.Registration.DataBase\Space.Registration.DataBase.csproj" />
   </ItemGroup>
 
 </Project>
