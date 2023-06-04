@@ -1,4 +1,4 @@
-﻿namespace Space.Shared.Common
+﻿namespace Space.Shared.Space
 {
     public class CompaniesEnums
     {

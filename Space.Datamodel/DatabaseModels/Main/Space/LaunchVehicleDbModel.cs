@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using static Space.Shared.Common.LaunchVehicleEnums;
+using static Space.Shared.Space.LaunchVehicleEnums;
 
 namespace Space.Server.Datamodel.DatabaseModels.Main.Space
 {

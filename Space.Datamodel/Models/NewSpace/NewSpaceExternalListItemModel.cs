@@ -1,4 +1,4 @@
-﻿using static Space.Shared.Common.LaunchVehicleEnums;
+﻿using static Space.Shared.Space.LaunchVehicleEnums;
 
 namespace Space.Backend.Datamodel.Models.NewSpace
 {

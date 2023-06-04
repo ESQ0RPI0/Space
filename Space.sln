@@ -35,6 +35,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Space.Registration.DataBase
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Space.Forms", "Space.Forms\Space.Forms.csproj", "{9B05B668-DDEA-414F-B91D-53FE98224DE4}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Synchronization", "Synchronization", "{3F3A053A-F994-4979-8A98-0C8E599AE60D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Space.Server.Sync.Database", "Space.Server.Sync.Database\Space.Server.Sync.Database.csproj", "{60712319-C879-4A67-A7F4-D26E5CBD0A6C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -101,6 +105,10 @@ Global
 		{9B05B668-DDEA-414F-B91D-53FE98224DE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B05B668-DDEA-414F-B91D-53FE98224DE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B05B668-DDEA-414F-B91D-53FE98224DE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60712319-C879-4A67-A7F4-D26E5CBD0A6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60712319-C879-4A67-A7F4-D26E5CBD0A6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60712319-C879-4A67-A7F4-D26E5CBD0A6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60712319-C879-4A67-A7F4-D26E5CBD0A6C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -109,6 +117,8 @@ Global
 		{BA7650C2-6B48-4BAE-8EB6-CE1B2CEFFA7F} = {D054B8F2-B130-492C-B5DB-4E1170F949D7}
 		{4355168B-DDCE-47F8-9280-7F2CCC062449} = {D054B8F2-B130-492C-B5DB-4E1170F949D7}
 		{AF446FCD-CFE1-4872-9590-7358E8243A9D} = {D054B8F2-B130-492C-B5DB-4E1170F949D7}
+		{D1E21F20-38FC-4DDE-B52F-AA7B7E4C1552} = {3F3A053A-F994-4979-8A98-0C8E599AE60D}
+		{60712319-C879-4A67-A7F4-D26E5CBD0A6C} = {3F3A053A-F994-4979-8A98-0C8E599AE60D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9F839B60-0D08-4370-A44D-F6EC2CE99CE5}

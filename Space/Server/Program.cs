@@ -2,6 +2,7 @@ using Space.Server.Database.Extensions;
 using Space.Server.Extensions;
 using Space.Server.Services.Extensions;
 using Space.Server.Sync.Extensions;
+using Space.Server.Sync.Database.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +17,7 @@ builder.Services.AddSettings(builder.Configuration);
 var databaseConnectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
 builder.Services.AddNewSpaceDatabaseContext(databaseConnectionString)
+    .AddSyncDatabase(databaseConnectionString)
     .AddNewSpaceServices()
     .AddNewSpaceSync();
 

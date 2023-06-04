@@ -17,6 +17,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Space.Datamodel\Space.Server.Datamodel.csproj" />
     <ProjectReference Include="..\Space.Server.Services\Space.Server.Services.csproj" />
+    <ProjectReference Include="..\Space.Server.Sync.Database\Space.Server.Sync.Database.csproj" />
   </ItemGroup>
 
 </Project>

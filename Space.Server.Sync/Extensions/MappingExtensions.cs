@@ -2,7 +2,7 @@
 using HtmlAgilityPack;
 using Space.Backend.Datamodel.Models.NewSpace;
 using Space.Server.Datamodel.DatabaseModels.NewSpace;
-using static Space.Shared.Common.LaunchVehicleEnums;
+using static Space.Shared.Space.LaunchVehicleEnums;
 
 namespace Space.Server.Sync.Extensions
 {
