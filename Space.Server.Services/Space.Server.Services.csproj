@@ -20,6 +20,7 @@
     <ProjectReference Include="..\Space.Front.Forms\Space.Client.Forms.csproj" />
     <ProjectReference Include="..\Space.Server.Database\Space.Server.Database.csproj" />
 	  <ProjectReference Include="..\Space.Registration.DataBase\Space.Registration.DataBase.csproj" />
+	  <ProjectReference Include="..\Space.Server.Sync.Database\Space.Server.Sync.Database.csproj" />
   </ItemGroup>
 
 </Project>
