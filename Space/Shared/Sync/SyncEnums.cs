@@ -4,11 +4,11 @@
     {
         Created = 0,
         Processing = 1,
-        Completed = 2,
-        Deleted = 3,
         Postponed = 4,
         Paused = 5,
-        Aborted = 6,
+        Aborted = 252,
+        Deleted = 253,
+        Completed = 254,
         Error = 255
     }
 
