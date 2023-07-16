@@ -4,8 +4,8 @@
     {
         Created = 0,
         Processing = 1,
-        Postponed = 4,
-        Paused = 5,
+        Postponed = 2,
+        Paused = 3,
         Aborted = 252,
         Deleted = 253,
         Completed = 254,
