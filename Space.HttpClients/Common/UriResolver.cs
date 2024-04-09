@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
-using Space.Client.Forms.Basic;
+﻿using Space.Client.Forms.Basic;
+using System.Web;
 
 namespace Space.HttpClients.Common
 {
@@ -7,9 +7,14 @@ namespace Space.HttpClients.Common
     {
         public static string ResolveForFront(string uri, QueryModelBase form)
         {
-            var result = uri + QueryString.Create(form.GetParameters());
+            var result = HttpUtility.ParseQueryString(uri);
 
-            return result;
+            foreach (var param in form.GetParameters())
+            {
+                result[param.Key] = param.Value;
+            }
+
+            return result.ToString();
         }
     }
 }

@@ -1,3 +1,4 @@
+using Space.Client;
 using Space.Server.Database.Extensions;
 using Space.Server.Extensions;
 using Space.Server.Services.Extensions;
@@ -19,6 +20,9 @@ builder.Services.AddNewSpaceDatabaseContext(databaseConnectionString)
     .AddNewSpaceServices()
     .AddNewSpaceSync();
 
+builder.Services.AddRazorComponents()
+    .AddInteractiveServerComponents()
+    .AddInteractiveWebAssemblyComponents();
 
 var app = builder.Build();
 
@@ -50,6 +54,7 @@ app.UseRouting();
 
 app.MapRazorPages();
 app.MapControllers();
+app.MapRazorComponents<App>().AddInteractiveWebAssemblyRenderMode();
 app.MapFallbackToFile("index.html");
 
 app.Run();

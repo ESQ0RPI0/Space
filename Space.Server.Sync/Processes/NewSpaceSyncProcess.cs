@@ -4,7 +4,6 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Space.Backend.Datamodel.Models.NewSpace;
 using Space.Server.Datamodel.Common.Settings;
-using Space.Server.Datamodel.DatabaseModels.NewSpace;
 using Space.Server.Services.NewSpace;
 using Space.Shared.Api.ApiResults;
 using System.Net;
