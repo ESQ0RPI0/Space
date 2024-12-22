@@ -1,8 +1,14 @@
 ﻿@page "/vehicles"
-@using MudBlazor
+
+@rendermode @(new InteractiveWebAssemblyRenderMode(false))
 
 <h3>Launch Vehicles</h3>
 
+<MudContainer>
+    <MudButton OnClick="Sync">
+        Sync
+    </MudButton>
+</MudContainer>
 
 <MudTable Items="@LaunchVehiclesList" Hover="true" Breakpoint="Breakpoint.Sm">
     <HeaderContent>
@@ -35,3 +41,4 @@
     </RowTemplate>
 </MudTable>
 <MudPagination></MudPagination>
+

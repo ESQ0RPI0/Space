@@ -1,6 +1,8 @@
+using MudBlazor.Services;
 using Space.Client;
 using Space.Server.Database.Extensions;
 using Space.Server.Extensions;
+using Space.Server.Pages;
 using Space.Server.Services.Extensions;
 using Space.Server.Sync.Extensions;
 
@@ -18,7 +20,8 @@ var databaseConnectionString = builder.Configuration.GetConnectionString("Defaul
 
 builder.Services.AddNewSpaceDatabaseContext(databaseConnectionString)
     .AddNewSpaceServices()
-    .AddNewSpaceSync();
+    .AddNewSpaceSync()
+    .AddMudServices();
 
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
@@ -37,12 +40,11 @@ else
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
-
 app.UseHttpsRedirection();
 app.UseBlazorFrameworkFiles();
 app.UseAuthentication();
 app.UseAuthorization();
-app.UseCors(u => u.WithOrigins("https://localhost:44351").AllowAnyHeader().AllowAnyMethod());
+app.UseCors(u => u.WithOrigins("https://localhost:44351", "https://localhost:7157").AllowAnyHeader().AllowAnyMethod());
 app.UseStaticFiles();
 
 app.UseSwagger();
@@ -51,10 +53,15 @@ app.UseSwaggerUI(c =>
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "Blazor API V1");
 });
 app.UseRouting();
+app.UseAntiforgery();
 
 app.MapRazorPages();
 app.MapControllers();
-app.MapRazorComponents<App>().AddInteractiveWebAssemblyRenderMode();
+app.MapRazorComponents<App>()
+    .AddInteractiveServerRenderMode()
+    .AddInteractiveWebAssemblyRenderMode()
+    .AddAdditionalAssemblies(typeof(Space.Client._Imports).Assembly);
+
 app.MapFallbackToFile("index.html");
 
 app.Run();

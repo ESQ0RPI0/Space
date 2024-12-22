@@ -1,6 +1,7 @@
 ﻿using Space.Client.Datamodel.ViewModels;
 using Space.Client.Forms.Basic;
 using Space.HttpClients;
+using Space.Shared.Api.ApiResults;
 
 namespace Space.FrontHttpClient.Launchers
 {
@@ -16,6 +17,11 @@ namespace Space.FrontHttpClient.Launchers
         public async Task<List<LaunchVehicleViewModel>> GetLaunchVehicles(PagingForm form)
         {
             return await _frontApiClient.Get<List<LaunchVehicleViewModel>>("NewSpace/List", form);
+        }
+
+        public async Task<ServerResult<bool>> SyncLaunchVehicles()
+        {
+            return await _frontApiClient.Get<ServerResult<bool>>("NewSpace/RunSync");
         }
     }
 }

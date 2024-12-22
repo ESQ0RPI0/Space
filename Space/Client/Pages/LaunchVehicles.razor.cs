@@ -27,5 +27,12 @@ namespace Space.Client.Pages
 
             LaunchVehiclesList = await Client.GetLaunchVehicles(PagingForm);
         }
+
+        private async Task Sync()
+        {
+            await Client.SyncLaunchVehicles();
+
+            LaunchVehiclesList = await Client.GetLaunchVehicles(PagingForm);
+        }
     }
 }

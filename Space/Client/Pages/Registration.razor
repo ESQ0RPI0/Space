@@ -1,5 +1,8 @@
 ﻿@page "/registration"
+@rendermode InteractiveWebAssembly
+
 @inject FrontApiClient httpClient
+
 @using Space.Forms.Registration
 @using MudBlazor
 @using Space.HttpClients;
@@ -11,14 +14,14 @@
         <MudPaper Class="pa-4">
             <MudForm @ref="form" ReadOnly="false" @bind-IsValid="@success" @bind-Errors="@errors" >
                 <MudTextField @bind-Value="userRegistrationForm.Email" T="string" Label="Email" 
-                Required="true" RequiredError="Email is required!" Class="mt-3" Variant="Variant.Outlined" />
+                    Required="true" RequiredError="Email is required!" Class="mt-3" Variant="Variant.Outlined" />
                 <MudTextField @bind-Value="userRegistrationForm.Password" Label="Password" InputType="InputType.Password" T="string" Required="true" RequiredError="Email is required!" Class="mt-3" Variant="Variant.Outlined" />
-    <div style="text-align:center;margin-top:20px;">
-                    <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="RegisterAsync">
-            Register
-        </MudButton>
-    </div>
-</MudForm>
+                <div style="text-align:center;margin-top:20px;">
+                                <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="RegisterAsync">
+                        Register
+                    </MudButton>
+                </div>
+            </MudForm>
         </MudPaper>
     </MudItem>
 </MudGrid>
