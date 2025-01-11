@@ -7,16 +7,20 @@ namespace Space.HttpClients
 {
     public class FrontApiClient
     {
-        private readonly HttpClient _httpClient;
+        private readonly IHttpClientFactory _httpClientFactory;
 
-        public FrontApiClient(HttpClient httpClient)
+        private const string CLIENT_NAME = "api_backend";
+
+        public FrontApiClient(IHttpClientFactory httpClientFactory)
         {
-            _httpClient = httpClient;
+            _httpClientFactory = httpClientFactory;
         }
 
         public async Task<TResult?> Get<TResult>(string actionName)
         {
-            var result = await _httpClient.GetFromJsonAsync<TResult?>(actionName);
+            using var client = _httpClientFactory.CreateClient(CLIENT_NAME);
+
+            var result = await client.GetFromJsonAsync<TResult?>(actionName);
 
             return result;
         }
@@ -24,7 +28,9 @@ namespace Space.HttpClients
         {
             var finalUri = UriResolver.ResolveForFront(actionName, form);
 
-            var result = await _httpClient.GetFromJsonAsync<T?>(finalUri);
+            using var client = _httpClientFactory.CreateClient(CLIENT_NAME);
+
+            var result = await client.GetFromJsonAsync<T?>(finalUri);
 
             return result;
         }
@@ -40,7 +46,9 @@ namespace Space.HttpClients
         {
             var content = JsonContent.Create(payload);
 
-            var requestBody = await _httpClient.PostAsync(actionName, content);
+            using var client = _httpClientFactory.CreateClient();
+
+            var requestBody = await client.PostAsync(actionName, content);
 
             var result = await requestBody.Content.ReadAsStringAsync();
 

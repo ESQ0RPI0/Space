@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using HtmlAgilityPack;
 using Space.Backend.Datamodel.Models.NewSpace;
+using Space.Client.Datamodel.ViewModels;
 using Space.Server.Datamodel.DatabaseModels.NewSpace;
+using Space.Server.Datamodel.Models.NewSpace;
 using static Space.Shared.Common.LaunchVehicleEnums;
 
 namespace Space.Server.Sync.Extensions
@@ -77,7 +79,13 @@ namespace Space.Server.Sync.Extensions
                     opts.MapFrom(v => Convert.ToDecimal(v.Funding) * MoneyMultipliersMap.GetValueOrDefault(v.FundingMultiplier.Value, 1));
                 })
                 .ForMember(u => u.Logo, opts => opts.MapFrom(v => v.Logo))
-                .ForMember(u => u.Photo, opts => opts.MapFrom(v => v.Photo));
+                .ForMember(u => u.Photo, opts => opts.MapFrom(v => v.Photo))
+                .ForMember(u => u.Created, opts =>
+                {
+                    opts.UseDestinationValue();
+                });
+
+            CreateMap<NewSpaceExternalListItemDbModel, LaunchVehicleRawViewModel>();
         }
     }
 }

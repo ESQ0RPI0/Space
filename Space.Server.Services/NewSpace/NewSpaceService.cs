@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Space.Backend.Datamodel.Models.NewSpace;
+using Space.Client.Datamodel.ViewModels;
 using Space.Client.Forms.Basic;
 using Space.Server.Database.Context;
 using Space.Server.Datamodel.DatabaseModels.NewSpace;
 using Space.Shared.Api.ApiResults;
-using System.Diagnostics;
 
 namespace Space.Server.Services.NewSpace
 {
@@ -28,7 +28,7 @@ namespace Space.Server.Services.NewSpace
             return ServerResults.CachedTrue;
         }
 
-        public async Task<ServerResult<List<NewSpaceExternalListItemModel>>> GetList(PagingForm form)
+        public async Task<ServerResult<List<LaunchVehicleRawViewModel>>> GetList(PagingForm form)
         {
             var result = await _dc.NewSpaceExternalListItems
                 .AsNoTracking()
@@ -36,7 +36,7 @@ namespace Space.Server.Services.NewSpace
                 .Take(form.Count)
                 .ToListAsync();
 
-            return _mapper.Map<List<NewSpaceExternalListItemModel>>(result);
+            return _mapper.Map<List<LaunchVehicleRawViewModel>>(result);
         }
 
     }

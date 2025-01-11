@@ -13,7 +13,9 @@ namespace Space.Server.Controllers.ExternalResources
         {
             _spaceFundService = spaceFundService;
         }
-        public IActionResult List()
+        [HttpGet]
+        [Route("[action]")]
+        public async Task<IActionResult> ListAsync()
         {
             return View();
         }

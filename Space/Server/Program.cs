@@ -1,5 +1,4 @@
 using MudBlazor.Services;
-using Space.Client;
 using Space.Server.Database.Extensions;
 using Space.Server.Extensions;
 using Space.Server.Pages;
@@ -17,6 +16,9 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(typeof(NewSpaceMappingProfile));
 builder.Services.AddSettings(builder.Configuration);
 var databaseConnectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+if (databaseConnectionString is null)
+    throw new ArgumentNullException($"{nameof(databaseConnectionString)}");
 
 builder.Services.AddNewSpaceDatabaseContext(databaseConnectionString)
     .AddNewSpaceServices()

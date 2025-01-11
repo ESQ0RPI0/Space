@@ -10,5 +10,10 @@ namespace Space.Server.Services.SpaceFund
         {
             _dc = spaceFundContext;
         }
+
+        public async Task GetListAsync()
+        {
+
+        }
     }
 }

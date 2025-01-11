@@ -20,5 +20,6 @@ namespace Space.Server.Datamodel.DatabaseModels.NewSpace
         public bool HasFunding { get; set; }
         public string? Logo { get; set; }
         public string? Photo { get; set; }
+        public DateTime Created { get; set; } = DateTime.UtcNow;
     }
 }

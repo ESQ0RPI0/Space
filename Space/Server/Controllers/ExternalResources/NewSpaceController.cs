@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Space.Backend.Datamodel.Models.NewSpace;
+using Space.Client.Datamodel.ViewModels;
 using Space.Client.Forms.Basic;
+using Space.Server.Datamodel.Models.NewSpace;
 using Space.Server.Services.NewSpace;
 using Space.Server.Sync.Processes;
 using Space.Shared.Api.ApiResults;
@@ -22,7 +24,7 @@ namespace Space.Server.Controllers.ExternalResources
         }
         [HttpGet]
         [Route("[action]")]
-        public async Task<ServerResult<List<NewSpaceExternalListItemModel>>> List([FromQuery] PagingForm form)
+        public async Task<ServerResult<List<LaunchVehicleRawViewModel>>> RawList([FromQuery] PagingForm form)
         {
             return await _newSpaceService.GetList(form);
         }

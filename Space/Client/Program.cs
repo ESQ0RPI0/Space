@@ -8,7 +8,12 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddMudServices();
 builder.Services
-    .AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) })
-    .AddApiClients();
+    .AddHttpClient("api_backend", (client) =>
+    {
+        client.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress);
+        client.DefaultRequestHeaders.Add("Accept", "application/json");
+    });
+
+builder.Services.AddApiClients();
 
 await builder.Build().RunAsync();

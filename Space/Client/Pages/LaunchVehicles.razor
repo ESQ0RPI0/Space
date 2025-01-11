@@ -5,40 +5,58 @@
 <h3>Launch Vehicles</h3>
 
 <MudContainer>
-    <MudButton OnClick="Sync">
+    <MudButton Variant="Variant.Filled" Color="Color.Secondary" OnClick="Sync">
         Sync
     </MudButton>
 </MudContainer>
 
-<MudTable Items="@LaunchVehiclesList" Hover="true" Breakpoint="Breakpoint.Sm">
-    <HeaderContent>
-        <MudTh>Organization</MudTh>
-        <MudTh>Launcher</MudTh>
-        <MudTh>Founded</MudTh>
-        <MudTh>Status</MudTh>
-        <MudTh>First launch</MudTh>
-        <MudTh>Launches</MudTh>
-        <MudTh>Cost</MudTh>
-        <MudTh>Perfomance</MudTh>
-        <MudTh>Price Per Kg</MudTh>
-        <MudTh>Founding</MudTh>
-        <MudTh>Logo</MudTh>
-        <MudTh>Photo</MudTh>
-    </HeaderContent>
-    <RowTemplate>
-        <MudTd>@context.Organization</MudTd>
-        <MudTd>@context.Launcher</MudTd>
-        <MudTd>@context.Founded</MudTd>
-        <MudTd>@context.Status</MudTd>
-        <MudTd>@context.FirstLaunch</MudTd>
-        <MudTd>@context.Launches</MudTd>
-        <MudTd>@context.Cost</MudTd>
-        <MudTd>@context.Perfomance</MudTd>
-        <MudTd>@context.PricePerKg</MudTd>
-        <MudTd>@context.Founded</MudTd>
-        <MudTd>@context.Logo</MudTd>
-        <MudTd>@context.Photo</MudTd>
-    </RowTemplate>
-</MudTable>
-<MudPagination></MudPagination>
+<MudTabs Rounded="true">
+    <MudTabPanel Text="Raw data" BadgeColor="Color.Primary">
+        @if (Result?.IsCorrect == true)
+        {
+            <MudTable Items="@Result.Result" Hover="true" Breakpoint="Breakpoint.Sm">
+                <HeaderContent>
+                    <MudTh>Organization</MudTh>
+                    <MudTh>Launcher</MudTh>
+                    <MudTh>Founded</MudTh>
+                    <MudTh>Status</MudTh>
+                    <MudTh>First launch</MudTh>
+                    <MudTh>Launches</MudTh>
+                    <MudTh>Cost</MudTh>
+                    <MudTh>Perfomance</MudTh>
+                    <MudTh>Price Per Kg</MudTh>
+                    <MudTh>Founding</MudTh>
+                    <MudTh>Logo</MudTh>
+                    <MudTh>Photo</MudTh>
+                </HeaderContent>
+                <RowTemplate>
+                    <MudTd>@context.Organization</MudTd>
+                    <MudTd>@context.Launcher</MudTd>
+                    <MudTd>@context.Founded</MudTd>
+                    <MudTd>@context.Status</MudTd>
+                    <MudTd>@context.FirstLaunch</MudTd>
+                    <MudTd>@context.Launches</MudTd>
+                    <MudTd>@context.Cost</MudTd>
+                    <MudTd>@context.Perfomance Kg</MudTd>
+                    <MudTd>@context.PricePerKg</MudTd>
+                    <MudTd>@context.Founded</MudTd>
+                    <MudTd>@context.Logo</MudTd>
+                    <MudTd>@context.Photo</MudTd>
+                </RowTemplate>
+            </MudTable>
+            <MudPagination Color="Color.Primary" ShowFirstButton ="true" ShowLastButton="true"></MudPagination>
+        }
+    </MudTabPanel>
+    <MudTabPanel Text="Tab Two">
+        <MudText>Content Two</MudText>
+    </MudTabPanel>
+</MudTabs>
 
+
+<style>
+   th {
+       font-family: 'Times New Roman';
+       font-size: large;
+       font-weight: 700;
+   }
+</style>
