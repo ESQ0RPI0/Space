@@ -19,6 +19,7 @@
     <ProjectReference Include="..\Space.Forms\Space.Forms.csproj" />
     <ProjectReference Include="..\Space.Front.Datamodel\Space.Client.Datamodel.csproj" />
     <ProjectReference Include="..\Space.Front.Forms\Space.Client.Forms.csproj" />
+    <ProjectReference Include="..\Space.Server.AI.Core\Space.Server.AI.Core.csproj" />
     <ProjectReference Include="..\Space.Server.Database\Space.Server.Database.csproj" />
 	  <ProjectReference Include="..\Space.Registration.DataBase\Space.Registration.DataBase.csproj" />
   </ItemGroup>

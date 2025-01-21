@@ -1,4 +1,4 @@
-using MudBlazor.Services;
+using Space.Server.AI.Logic;
 using Space.Server.Database.Extensions;
 using Space.Server.Extensions;
 using Space.Server.Pages;
@@ -22,6 +22,7 @@ if (databaseConnectionString is null)
 
 builder.Services.AddNewSpaceDatabaseContext(databaseConnectionString)
     .AddNewSpaceServices()
+    .SetupSemanticKernelLogic(builder.Configuration)
     .AddNewSpaceSync()
     .AddMudServices();
 
@@ -62,7 +63,7 @@ app.MapControllers();
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode()
     .AddInteractiveWebAssemblyRenderMode()
-    .AddAdditionalAssemblies(typeof(Space.Client._Imports).Assembly);
+    .AddAdditionalAssemblies(typeof(Space.Client.Shared.NavMenu).Assembly);
 
 app.MapFallbackToFile("index.html");
 

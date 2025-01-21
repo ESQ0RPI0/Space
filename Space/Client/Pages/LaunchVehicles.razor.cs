@@ -17,7 +17,7 @@ namespace Space.Client.Pages
             Offset = 0
         };
 
-        public ServerResult<IEnumerable<LaunchVehicleRawViewModel>>? Result { get; private set; }
+        public ServerResult<IEnumerable<NsRawItemViewModel>>? RawResult { get; private set; }
 
         public LaunchVehicles(LaunchVehiclesApiClient client, ISnackbar snackbar)
         {
@@ -40,18 +40,20 @@ namespace Space.Client.Pages
 
         private async Task GetData()
         {
-            Result = await _client.GetLaunchVehicles(PagingForm);
+            RawResult = await _client.GetLaunchVehicles(PagingForm);
 
-            if (Result == null)
+            if (RawResult == null)
             {
-                _snackbar.Add("Error occured dureng HTTP request");
+                _snackbar.Add("Error occured during HTTP request");
                 return;
             }
 
-            if (Result.IsCorrect == false && Result.Information is not null)
+            if (RawResult.IsCorrect == false && RawResult.Information is not null)
             {
-                _snackbar.Add(Result.Information.Message);
+                _snackbar.Add(RawResult.Information.Message);
             }
+
+            _snackbar.Add("Raw LV data loaded");
         }
     }
 }

@@ -24,9 +24,9 @@ namespace Space.Server.Controllers.ExternalResources
         }
         [HttpGet]
         [Route("[action]")]
-        public async Task<ServerResult<List<LaunchVehicleRawViewModel>>> RawList([FromQuery] PagingForm form)
+        public async Task<ServerResult<List<NsRawItemViewModel>>> RawList([FromQuery] PagingForm form)
         {
-            return await _newSpaceService.GetList(form);
+            return await _newSpaceService.GetRawList(form);
         }
 
         [HttpGet]

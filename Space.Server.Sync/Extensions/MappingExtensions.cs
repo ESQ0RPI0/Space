@@ -3,7 +3,6 @@ using HtmlAgilityPack;
 using Space.Backend.Datamodel.Models.NewSpace;
 using Space.Client.Datamodel.ViewModels;
 using Space.Server.Datamodel.DatabaseModels.NewSpace;
-using Space.Server.Datamodel.Models.NewSpace;
 using static Space.Shared.Common.LaunchVehicleEnums;
 
 namespace Space.Server.Sync.Extensions
@@ -13,8 +12,8 @@ namespace Space.Server.Sync.Extensions
         private static char[] MoneyMultipliers = ['M', 'B'];
         private static Dictionary<char, int> MoneyMultipliersMap = new Dictionary<char, int>()
         {
-            { 'M', 1000000 },
-            { 'B', 1000000000 }
+            { 'M', 1_000_000 },
+            { 'B', 1_000_000_000 }
         };
 
         private static char DefaultCurrency = '$';
@@ -85,7 +84,7 @@ namespace Space.Server.Sync.Extensions
                     opts.UseDestinationValue();
                 });
 
-            CreateMap<NewSpaceExternalListItemDbModel, LaunchVehicleRawViewModel>();
+            CreateMap<NewSpaceExternalListItemDbModel, NsRawItemViewModel>();
         }
     }
 }

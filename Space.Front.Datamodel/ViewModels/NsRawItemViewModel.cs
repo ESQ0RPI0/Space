@@ -2,7 +2,7 @@
 
 namespace Space.Client.Datamodel.ViewModels
 {
-    public class LaunchVehicleRawViewModel
+    public class NsRawItemViewModel
     {
         public int Id { get; set; }
         public string Organization { get; set; }

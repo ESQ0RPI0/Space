@@ -14,9 +14,9 @@ namespace Space.FrontHttpClient.Launchers
             _frontApiClient = _httpClient;
         }
 
-        public async Task<ServerResult<IEnumerable<LaunchVehicleRawViewModel>>> GetLaunchVehicles(PagingForm form)
+        public async Task<ServerResult<IEnumerable<NsRawItemViewModel>>> GetLaunchVehicles(PagingForm form)
         {
-            return await _frontApiClient.Get<ServerResult<IEnumerable<LaunchVehicleRawViewModel>>>("NewSpace/RawList", form);
+            return await _frontApiClient.Get<ServerResult<IEnumerable<NsRawItemViewModel>>>("NewSpace/RawList", form);
         }
 
         public async Task<ServerResult<bool>> SyncLaunchVehicles()

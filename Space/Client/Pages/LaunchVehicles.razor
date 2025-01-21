@@ -12,9 +12,9 @@
 
 <MudTabs Rounded="true">
     <MudTabPanel Text="Raw data" BadgeColor="Color.Primary">
-        @if (Result?.IsCorrect == true)
+        @if (RawResult?.IsCorrect == true)
         {
-            <MudTable Items="@Result.Result" Hover="true" Breakpoint="Breakpoint.Sm">
+            <MudTable Items="@RawResult.Result" Hover="true" Breakpoint="Breakpoint.Sm">
                 <HeaderContent>
                     <MudTh>Organization</MudTh>
                     <MudTh>Launcher</MudTh>
@@ -47,11 +47,12 @@
             <MudPagination Color="Color.Primary" ShowFirstButton ="true" ShowLastButton="true"></MudPagination>
         }
     </MudTabPanel>
-    <MudTabPanel Text="Tab Two">
-        <MudText>Content Two</MudText>
+    <MudTabPanel Text="Processed data">
+        
     </MudTabPanel>
 </MudTabs>
 
+<MudSnackbarProvider/>
 
 <style>
    th {

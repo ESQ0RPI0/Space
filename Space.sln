@@ -9,13 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Space.Client", "Space\Clien
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Space.Shared", "Space\Shared\Space.Shared.csproj", "{71F9748E-26AE-499C-AB7C-8F5ABBA52D8B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Clients", "Clients", "{D054B8F2-B130-492C-B5DB-4E1170F949D7}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HttpClients", "HttpClients", "{D054B8F2-B130-492C-B5DB-4E1170F949D7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Space.FrontHttpClient", "Space.HttpClients\Space.FrontHttpClient.csproj", "{BA7650C2-6B48-4BAE-8EB6-CE1B2CEFFA7F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Space.Client.Http", "Space.HttpClients\Space.Client.Http.csproj", "{BA7650C2-6B48-4BAE-8EB6-CE1B2CEFFA7F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Space.HttpClients.Common", "Space.HttpClients.Common\Space.HttpClients.Common.csproj", "{4355168B-DDCE-47F8-9280-7F2CCC062449}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Space.BackendHttpClient", "Space.BackendHttpClient\Space.BackendHttpClient.csproj", "{AF446FCD-CFE1-4872-9590-7358E8243A9D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Space.Server.Http", "Space.BackendHttpClient\Space.Server.Http.csproj", "{AF446FCD-CFE1-4872-9590-7358E8243A9D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Space.Server.Datamodel", "Space.Datamodel\Space.Server.Datamodel.csproj", "{356F829E-A0AC-4CB5-BEDF-FF2CB4A0904F}"
 EndProject
@@ -36,6 +36,16 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Space.Forms", "Space.Forms\Space.Forms.csproj", "{9B05B668-DDEA-414F-B91D-53FE98224DE4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{698DFC85-A6E7-4B55-A9A4-34D778C8D1FA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AI", "AI", "{CF52D709-80DF-49DB-B7AF-B2106167DBCB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Space.Server.AI.Core", "Space.Server.AI.Core\Space.Server.AI.Core.csproj", "{788954EC-61A7-41E6-9857-80EA7CC4F5A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Space.Server.AI.Logic", "Space.Server.AI.Logic\Space.Server.AI.Logic.csproj", "{66E29A2E-6FC5-48E4-9DB5-A3557C9002DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Space.Client.AI.Core", "Space.Client.Ai.Core\Space.Client.AI.Core.csproj", "{076D1D73-4EE8-4312-9A93-D38CCF1CC405}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Space.Client.Logic", "Space.Client.Logic\Space.Client.Logic.csproj", "{0576A436-2480-4F1B-A386-ED5AB30FF7D4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -103,6 +113,22 @@ Global
 		{9B05B668-DDEA-414F-B91D-53FE98224DE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B05B668-DDEA-414F-B91D-53FE98224DE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B05B668-DDEA-414F-B91D-53FE98224DE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{788954EC-61A7-41E6-9857-80EA7CC4F5A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{788954EC-61A7-41E6-9857-80EA7CC4F5A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{788954EC-61A7-41E6-9857-80EA7CC4F5A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{788954EC-61A7-41E6-9857-80EA7CC4F5A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66E29A2E-6FC5-48E4-9DB5-A3557C9002DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66E29A2E-6FC5-48E4-9DB5-A3557C9002DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66E29A2E-6FC5-48E4-9DB5-A3557C9002DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66E29A2E-6FC5-48E4-9DB5-A3557C9002DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{076D1D73-4EE8-4312-9A93-D38CCF1CC405}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{076D1D73-4EE8-4312-9A93-D38CCF1CC405}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{076D1D73-4EE8-4312-9A93-D38CCF1CC405}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{076D1D73-4EE8-4312-9A93-D38CCF1CC405}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0576A436-2480-4F1B-A386-ED5AB30FF7D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0576A436-2480-4F1B-A386-ED5AB30FF7D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0576A436-2480-4F1B-A386-ED5AB30FF7D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0576A436-2480-4F1B-A386-ED5AB30FF7D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -111,6 +137,9 @@ Global
 		{BA7650C2-6B48-4BAE-8EB6-CE1B2CEFFA7F} = {D054B8F2-B130-492C-B5DB-4E1170F949D7}
 		{4355168B-DDCE-47F8-9280-7F2CCC062449} = {D054B8F2-B130-492C-B5DB-4E1170F949D7}
 		{AF446FCD-CFE1-4872-9590-7358E8243A9D} = {D054B8F2-B130-492C-B5DB-4E1170F949D7}
+		{788954EC-61A7-41E6-9857-80EA7CC4F5A8} = {CF52D709-80DF-49DB-B7AF-B2106167DBCB}
+		{66E29A2E-6FC5-48E4-9DB5-A3557C9002DB} = {CF52D709-80DF-49DB-B7AF-B2106167DBCB}
+		{076D1D73-4EE8-4312-9A93-D38CCF1CC405} = {CF52D709-80DF-49DB-B7AF-B2106167DBCB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9F839B60-0D08-4370-A44D-F6EC2CE99CE5}

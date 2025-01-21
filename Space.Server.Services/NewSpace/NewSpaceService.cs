@@ -28,16 +28,33 @@ namespace Space.Server.Services.NewSpace
             return ServerResults.CachedTrue;
         }
 
-        public async Task<ServerResult<List<LaunchVehicleRawViewModel>>> GetList(PagingForm form)
+        public async Task<ServerResult<List<NsRawItemViewModel>>> GetRawList(PagingForm form, CancellationToken cancellationToken)
         {
             var result = await _dc.NewSpaceExternalListItems
                 .AsNoTracking()
                 .Skip(form.Offset)
                 .Take(form.Count)
-                .ToListAsync();
+                .ToListAsync(cancellationToken);
 
-            return _mapper.Map<List<LaunchVehicleRawViewModel>>(result);
+            return _mapper.Map<List<NsRawItemViewModel>>(result);
         }
 
+        public async Task<ServerResult<NsRawLaunchVehicleViewModel>> GetRawVehicle(int id, CancellationToken cancellationToken)
+        {
+            var result = await _dc.NewSpaceLaunchVehicles
+                .AsNoTracking()
+                .FirstOrDefaultAsync(u => u.Id == id, cancellationToken);
+
+            return _mapper.Map<NsRawLaunchVehicleViewModel>(result);
+        }
+
+        public async Task<ServerResult<List<NsRawLaunchVehicleViewModel>>> GetByCountryAsync(string country, CancellationToken cancellationToken)
+        {
+            var result = await _dc.NewSpaceLaunchVehicles
+                .Where(u => string.IsNullOrEmpty(u.Country) && u.Country == country)
+                .ToListAsync(cancellationToken);
+
+            return _mapper.Map<List<NsRawLaunchVehicleViewModel>>(result);
+        }
     }
 }

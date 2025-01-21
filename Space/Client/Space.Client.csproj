@@ -7,16 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="9.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="9.0.0" PrivateAssets="all" />
-    <PackageReference Include="MudBlazor" Version="7.15.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="9.0.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Space.Datamodel\Space.Server.Datamodel.csproj" />
+    <ProjectReference Include="..\..\Space.Client.Logic\Space.Client.Logic.csproj" />
     <ProjectReference Include="..\..\Space.Forms\Space.Forms.csproj" />
     <ProjectReference Include="..\..\Space.Front.Datamodel\Space.Client.Datamodel.csproj" />
-    <ProjectReference Include="..\..\Space.HttpClients\Space.FrontHttpClient.csproj" />
+    <ProjectReference Include="..\..\Space.HttpClients\Space.Client.Http.csproj" />
     <ProjectReference Include="..\Shared\Space.Shared.csproj" />
   </ItemGroup>
 
