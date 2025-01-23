@@ -1,7 +1,8 @@
 using MudBlazor.Services;
-using Space.FrontHttpClient.Extensions;
+using Space.Client.Http.Extensions;
 using Space.Client.Logic.Extensions;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using Microsoft.AspNetCore.Components.Web;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<HeadOutlet>("head::after");

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
@@ -19,11 +19,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Space\Client\Space.Client.csproj" />
     <ProjectReference Include="..\..\Space.Registration\Space.Registration.csproj" />
     <ProjectReference Include="..\..\Space.Server.AI.Logic\Space.Server.AI.Logic.csproj" />
     <ProjectReference Include="..\..\Space.Server.Services\Space.Server.Services.csproj" />
     <ProjectReference Include="..\..\Space.Server.Sync\Space.Server.Sync.csproj" />
-    <ProjectReference Include="..\Client\Space.Client.csproj" />
     <ProjectReference Include="..\Shared\Space.Shared.csproj" />
   </ItemGroup>
 

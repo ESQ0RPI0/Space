@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Space.FrontHttpClient.Launchers;
+using Space.Client.Launchers;
 using Space.HttpClients;
 
-namespace Space.FrontHttpClient.Extensions
+namespace Space.Client.Http.Extensions
 {
     public static class ServiceCollectionExtensions
     {

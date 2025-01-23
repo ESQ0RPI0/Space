@@ -3,7 +3,7 @@ using Space.Client.Forms.Basic;
 using Space.HttpClients;
 using Space.Shared.Api.ApiResults;
 
-namespace Space.FrontHttpClient.Launchers
+namespace Space.Client.Launchers
 {
     public class LaunchVehiclesApiClient
     {

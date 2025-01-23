@@ -1,7 +1,7 @@
 using MudBlazor;
 using Space.Client.Datamodel.ViewModels;
 using Space.Client.Forms.Basic;
-using Space.FrontHttpClient.Launchers;
+using Space.Client.Launchers;
 using Space.Shared.Api.ApiResults;
 
 namespace Space.Client.Pages
