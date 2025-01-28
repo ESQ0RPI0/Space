@@ -4,6 +4,6 @@
     {
         public string ModelName { get; set; }
         public string Host { get; set; }
-        public int Temperature { get; set; } = 0;
+        public float Temperature { get; set; } = 0f;
     }
 }

@@ -23,5 +23,10 @@ namespace Space.Client.Launchers
         {
             return await _frontApiClient.Get<ServerResult<bool>>("NewSpace/RunSync");
         }
+
+        public async Task<ServerResult<IEnumerable<NsRawItemViewModel>>> GetLaunchVehiclesByPromt(string prompt)
+        {
+            return await _frontApiClient.Get<ServerResult<IEnumerable<NsRawItemViewModel>>>($"NewSpace/RawListByPrompt?prompt={prompt}");
+        }
     }
 }

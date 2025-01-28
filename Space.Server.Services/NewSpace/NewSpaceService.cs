@@ -9,7 +9,7 @@ using Space.Shared.Api.ApiResults;
 
 namespace Space.Server.Services.NewSpace
 {
-    public class NewSpaceService
+    internal class NewSpaceService : INewSpaceService
     {
         private readonly NewSpaceContext _dc;
         private readonly IMapper _mapper;

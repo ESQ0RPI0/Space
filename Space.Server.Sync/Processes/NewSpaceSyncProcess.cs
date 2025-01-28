@@ -17,13 +17,13 @@ namespace Space.Server.Sync.Processes
         private readonly IOptionsMonitor<ConnectionStrings> _settings;
         private readonly IOptionsMonitor<NewSpacePageMarkings> _newSpacePageMarkings;
         private readonly IMapper _mapper;
-        private readonly NewSpaceService _newSpaceService;
+        private readonly INewSpaceService _newSpaceService;
 
         public NewSpaceSyncProcess(ILogger<NewSpaceSyncProcess> logger,
             IOptionsMonitor<ConnectionStrings> settings,
             IOptionsMonitor<NewSpacePageMarkings> newSpacePageMarkings,
             IMapper mapper,
-            NewSpaceService newSpaceService)
+            INewSpaceService newSpaceService)
         {
             _logger = logger;
             _settings = settings;

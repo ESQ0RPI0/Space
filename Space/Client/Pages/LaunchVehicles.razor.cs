@@ -3,6 +3,7 @@ using Space.Client.Datamodel.ViewModels;
 using Space.Client.Forms.Basic;
 using Space.Client.Launchers;
 using Space.Shared.Api.ApiResults;
+using Space.Client.Shared;
 
 namespace Space.Client.Pages
 {
@@ -30,6 +31,11 @@ namespace Space.Client.Pages
             await base.OnInitializedAsync();
 
             await GetData();
+        }
+
+        private async Task HandlePromptAsync(string prompt)
+        {
+
         }
 
         private async Task Sync()

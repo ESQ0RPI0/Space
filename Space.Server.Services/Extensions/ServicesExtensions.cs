@@ -10,7 +10,7 @@ namespace Space.Server.Services.Extensions
     {
         public static IServiceCollection AddNewSpaceServices(this IServiceCollection services)
         {
-            services.AddScoped<NewSpaceService>();
+            services.AddScoped<INewSpaceService, NewSpaceService>();
 
             return services;
         }

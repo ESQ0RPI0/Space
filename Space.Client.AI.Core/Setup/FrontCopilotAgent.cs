@@ -5,14 +5,14 @@ using Microsoft.SemanticKernel.ChatCompletion;
 using Microsoft.SemanticKernel.Connectors.OpenAI;
 using Space.Client.AI.Core.Settings;
 
-namespace Space.Client.AI.Core.Extensions
+namespace Space.Client.AI.Core.Setup
 {
-    public interface ICopilotHelper
+    public interface ICopilotAgent
     {
         Task<string> ExecutePrompt(string prompt);
     }
 
-    public class FrontCopilotAgent : ICopilotHelper
+    internal sealed class FrontCopilotAgent : ICopilotAgent
     {
         private readonly IConfiguration _configuration;
 
@@ -32,7 +32,8 @@ namespace Space.Client.AI.Core.Extensions
 
             var executionSettings = new OpenAIPromptExecutionSettings
             {
-                ToolCallBehavior = ToolCallBehavior.AutoInvokeKernelFunctions
+                ToolCallBehavior = ToolCallBehavior.AutoInvokeKernelFunctions,
+                Temperature = 0
             };
 
             ChatHistory chatHistory = [];

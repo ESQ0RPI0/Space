@@ -64,7 +64,7 @@ app.MapControllers();
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode()
     .AddInteractiveWebAssemblyRenderMode()
-    .AddAdditionalAssemblies(typeof(Space.Client.Shared.NavMenu).Assembly);
+    .AddAdditionalAssemblies(typeof(Space.Client._Imports).Assembly);
 
 app.MapFallbackToFile("index.html");
 
