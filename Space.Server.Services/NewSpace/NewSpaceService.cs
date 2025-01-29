@@ -51,7 +51,7 @@ namespace Space.Server.Services.NewSpace
         public async Task<ServerResult<List<NsRawLaunchVehicleViewModel>>> GetByCountryAsync(string country, CancellationToken cancellationToken)
         {
             var result = await _dc.NewSpaceLaunchVehicles
-                .Where(u => string.IsNullOrEmpty(u.Country) && u.Country == country)
+                .Where(u => !string.IsNullOrEmpty(u.Country) && u.Country == country)
                 .ToListAsync(cancellationToken);
 
             return _mapper.Map<List<NsRawLaunchVehicleViewModel>>(result);

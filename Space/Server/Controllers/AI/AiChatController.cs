@@ -19,7 +19,7 @@ namespace Space.Server.Controllers.AI
         [Route("[action]")]
         public async Task<ServerResult<string>> ExecutePromptAsync([FromBody] string promt, CancellationToken cancellationToken)
         {
-            return await _chat.ExecuteOperation<string>(promt, cancellationToken);
+            return await _chat.ExecuteOperation(promt, cancellationToken);
         }
     }
 }
