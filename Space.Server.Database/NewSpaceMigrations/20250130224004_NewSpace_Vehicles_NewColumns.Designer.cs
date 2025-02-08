@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Space.Server.Database.Context;
 
@@ -11,9 +12,11 @@ using Space.Server.Database.Context;
 namespace Space.Server.Database.NewSpaceMigrations
 {
     [DbContext(typeof(NewSpaceContext))]
-    partial class NewSpaceContextModelSnapshot : ModelSnapshot
+    [Migration("20250130224004_NewSpace_Vehicles_NewColumns")]
+    partial class NewSpace_Vehicles_NewColumns
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

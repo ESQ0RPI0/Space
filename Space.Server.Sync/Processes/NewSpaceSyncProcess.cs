@@ -4,7 +4,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Space.Backend.Datamodel.Models.NewSpace;
 using Space.Server.Datamodel.Common.Settings;
-using Space.Server.Services.NewSpace;
+using Space.Server.Services.Interfaces;
 using Space.Shared.Api.ApiResults;
 using System.Net;
 using static Space.Shared.Common.Server.ServerTypes;
@@ -32,24 +32,9 @@ namespace Space.Server.Sync.Processes
             _newSpaceService = newSpaceService;
         }
 
-        public async Task<ServerResult<bool>> Sync() //partiate to subprocesses
+        public async Task<ServerResult<bool>> Sync(CancellationToken cancellationToken = default) //partiate to subprocesses
         {
-            var url = _settings.CurrentValue.NewSpaceConnectionString;
-
-            if (url == null || string.IsNullOrEmpty(url))
-            {
-                return ServerErrorCodes.ConnectionStringError.WithExtras<bool>("Connection string not found", ServerMessageTypes.Critical);
-            }
-
-            var web = new HtmlWeb();
-            var doc = web.Load(url);//takes too long to get this
-
-            if (web.StatusCode != HttpStatusCode.OK)
-            {
-                return ServerErrorCodes.WebResourceLoadError;
-            }
-
-            _logger.LogTrace("Page was loaded");
+            
 
             var table = doc.GetElementbyId(_newSpacePageMarkings.CurrentValue.TableTargetId);
 
@@ -65,8 +50,8 @@ namespace Space.Server.Sync.Processes
 
                 var columns = row.SelectNodes(".//td");
 
-                var mappedRow = _mapper.Map<NewSpaceExternalListItemModel>(columns);
-                await _newSpaceService.AddExternalListItem(mappedRow);
+                var mappedRow = _mapper.Map<NsExternalListItemModel>(columns);
+                await _newSpaceService.AddExternalListItem(mappedRow, cancellationToken);
             }
 
             return ServerResults.CachedTrue;

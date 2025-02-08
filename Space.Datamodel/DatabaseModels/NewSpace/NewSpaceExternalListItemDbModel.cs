@@ -3,6 +3,9 @@ using static Space.Shared.Common.LaunchVehicleEnums;
 
 namespace Space.Server.Datamodel.DatabaseModels.NewSpace
 {
+    /// <summary>
+    /// NewSpace main list item model. For raw data save operations
+    /// </summary>
     public class NewSpaceExternalListItemDbModel
     {
         [Key]

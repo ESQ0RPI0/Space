@@ -21,7 +21,7 @@ namespace Space.Server.Sync.Extensions
 
         public NewSpaceMappingProfile()
         {
-            CreateMap<HtmlNodeCollection, NewSpaceExternalListItemModel>()//too vague and sometimes a better solution seems to be a custom mapping
+            CreateMap<HtmlNodeCollection, NsExternalListItemModel>()//too vague and sometimes a better solution seems to be a custom mapping
                 .ForMember(u => u.Organization, opts => opts.MapFrom(v => v[0].InnerText))
                 .ForMember(u => u.Launcher, opts => opts.MapFrom(v => v[1].InnerText))
                 .ForMember(u => u.FirstLaunch, opts => opts.MapFrom(v => v[2].InnerText))
@@ -49,7 +49,7 @@ namespace Space.Server.Sync.Extensions
                 .ForMember(u => u.Logo, opts => opts.MapFrom(v => v[8].FirstChild.GetAttributeValue("href", "")))
                 .ForMember(u => u.Photo, opts => opts.MapFrom(v => v[9].FirstChild.GetAttributeValue("href", "")));
 
-            CreateMap<NewSpaceExternalListItemModel, NewSpaceExternalListItemDbModel>()
+            CreateMap<NsExternalListItemModel, NewSpaceExternalListItemDbModel>()
                 .ForMember(u => u.Organization, opts => opts.MapFrom(v => v.Organization))
                 .ForMember(u => u.Launcher, opts => opts.MapFrom(v => v.Launcher))
                 .ForMember(u => u.Founded, opts => opts.MapFrom(v => Convert.ToInt32(v.Founded)))

@@ -2,7 +2,7 @@
 
 namespace Space.Server.Datamodel.Models.NewSpace
 {
-    public class NewSpaceExternalLaunchVehicleModel
+    public class NsExternalLaunchVehicleModel
     {
         public int Name { get; set; }
         public string[] SecondaryNames { get; set; }
@@ -17,6 +17,6 @@ namespace Space.Server.Datamodel.Models.NewSpace
         public LaunchVehiclePropellantType PropellantType { get; set; }
         public LaunchVehicleReusabilityType Reusability { get; set; }
         public string[] Photos { get; set; }
-        public NewSpaceExternalCompanyModel Company { get; set; }
+        public NsExternalCompanyModel Company { get; set; }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Space.Backend.Datamodel.Models.NewSpace
 {
-    public class NewSpaceExternalListItemModel
+    public class NsExternalListItemModel
     {
         public string Organization { get; set; }
         public string? Launcher { get; set; }

@@ -10,6 +10,7 @@ builder.Configuration.AddJsonFile("appsettings.json", false, true);
 var conStr = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddRegistrationContext(conStr);
 builder.Services.AddRegistrationServices();
+builder.Services.AddGeneralServices(builder.Configuration);
 
 builder.Services.AddCors(options =>
 {

@@ -2,7 +2,7 @@
 using Space.Client.Datamodel.ViewModels;
 using Space.Client.Forms.Basic;
 using Space.Server.AI.Logic.Interfaces;
-using Space.Server.Services.NewSpace;
+using Space.Server.Services.Interfaces;
 using Space.Server.Sync.Processes;
 using Space.Shared.Api.ApiResults;
 using System.Text.Json;
@@ -54,9 +54,9 @@ namespace Space.Server.Controllers.ExternalResources
 
         [HttpGet]
         [Route("[action]")]
-        public async Task<ServerResult<bool>> RunSync()
+        public async Task<ServerResult<bool>> RunSync(CancellationToken cancellationToken)
         {
-            await _newSpaceProcess.Sync();
+            await _newSpaceProcess.Sync(cancellationToken);
             return ServerResults.CachedTrue;
         }
     }

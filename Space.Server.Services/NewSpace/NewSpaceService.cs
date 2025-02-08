@@ -5,10 +5,14 @@ using Space.Client.Datamodel.ViewModels;
 using Space.Client.Forms.Basic;
 using Space.Server.Database.Context;
 using Space.Server.Datamodel.DatabaseModels.NewSpace;
+using Space.Server.Services.Interfaces;
 using Space.Shared.Api.ApiResults;
 
 namespace Space.Server.Services.NewSpace
 {
+    /// <summary>
+    /// NewSpace entities service
+    /// </summary>
     internal class NewSpaceService : INewSpaceService
     {
         private readonly NewSpaceContext _dc;
@@ -19,11 +23,11 @@ namespace Space.Server.Services.NewSpace
             _mapper = mapper;
         }
 
-        public async Task<ServerResult<bool>> AddExternalListItem(NewSpaceExternalListItemModel item)
+        public async Task<ServerResult<bool>> AddExternalListItem(NsExternalListItemModel item, CancellationToken cancellationToken)
         {
             var result = _mapper.Map<NewSpaceExternalListItemDbModel>(item);
-            _dc.NewSpaceExternalListItems.Add(result);
-            await _dc.SaveChangesAsync();
+            await _dc.NewSpaceExternalListItems.AddAsync(result, cancellationToken);
+            await _dc.SaveChangesAsync(cancellationToken);
 
             return ServerResults.CachedTrue;
         }
@@ -51,6 +55,7 @@ namespace Space.Server.Services.NewSpace
         public async Task<ServerResult<List<NsRawLaunchVehicleViewModel>>> GetByCountryAsync(string country, CancellationToken cancellationToken)
         {
             var result = await _dc.NewSpaceLaunchVehicles
+                .AsNoTracking()
                 .Where(u => !string.IsNullOrEmpty(u.Country) && u.Country == country)
                 .ToListAsync(cancellationToken);
 

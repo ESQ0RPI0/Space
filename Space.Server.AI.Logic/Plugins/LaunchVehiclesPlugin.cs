@@ -1,6 +1,6 @@
 ﻿using Microsoft.SemanticKernel;
 using Space.Client.Datamodel.ViewModels;
-using Space.Server.Services.NewSpace;
+using Space.Server.Services.Interfaces;
 using Space.Shared.Api.ApiResults;
 using System.ComponentModel;
 

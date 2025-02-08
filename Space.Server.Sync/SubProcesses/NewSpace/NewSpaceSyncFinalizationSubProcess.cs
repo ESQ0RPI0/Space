@@ -1,6 +1,6 @@
 ﻿namespace Space.Server.Sync.SubProcesses.NewSpace
 {
-    internal class NewSpaceSyncFinalizationSubProcess
+    internal sealed class NewSpaceSyncFinalizationSubProcess
     {
         public NewSpaceSyncFinalizationSubProcess()
         {
