@@ -5,9 +5,6 @@ using Space.Server.AI.Core.Settings;
 using Space.Server.AI.Logic.Interfaces;
 using Space.Server.AI.Logic.Plugins;
 using Space.Server.AI.Logic.Services;
-using Space.Server.Database.Extensions;
-using Space.Server.Services.Extensions;
-using Space.Server.Sync.Extensions;
 
 namespace Space.Server.AI.Logic
 {

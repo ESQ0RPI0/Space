@@ -3,6 +3,7 @@ using Space.Server.Datamodel.DatabaseModels.NewSpace;
 
 namespace Space.Server.Database.Context
 {
+    //To add a migration take a look in settings file, there should be something like 
     public class NewSpaceContext : DbContext
     {
         public NewSpaceContext(DbContextOptions<NewSpaceContext> options): base(options)

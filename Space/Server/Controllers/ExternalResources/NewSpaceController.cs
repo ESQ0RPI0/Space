@@ -3,7 +3,8 @@ using Space.Client.Datamodel.ViewModels;
 using Space.Client.Forms.Basic;
 using Space.Server.AI.Logic.Interfaces;
 using Space.Server.Services.Interfaces;
-using Space.Server.Sync.Processes;
+using Space.Server.Sync.Processes.NewSpace;
+using Space.Server.Sync.Processes.NewSpace.Requests;
 using Space.Shared.Api.ApiResults;
 using System.Text.Json;
 using static Space.Shared.Common.Server.ServerTypes;
@@ -15,22 +16,25 @@ namespace Space.Server.Controllers.ExternalResources
     public class NewSpaceController : Controller
     {
         private readonly INewSpaceService _newSpaceService;
+        private readonly INewSpaceQueryService _newSpaceQueryService;
         private readonly NewSpaceSyncProcess _newSpaceProcess;
         private readonly IServerAiAgent _agent;
 
         public NewSpaceController(INewSpaceService service,
             NewSpaceSyncProcess newSpaceProcess,
-            IServerAiAgent agent)
+            IServerAiAgent agent,
+            INewSpaceQueryService newSpaceQueryService)
         {
             _newSpaceService = service;
             _newSpaceProcess = newSpaceProcess;
             _agent = agent;
+            _newSpaceQueryService = newSpaceQueryService;
         }
         [HttpGet]
         [Route("[action]")]
         public async Task<ServerResult<List<NsRawItemViewModel>>> RawList([FromQuery] PagingForm form, CancellationToken cancellationToken)
         {
-            return await _newSpaceService.GetRawList(form, cancellationToken);
+            return await _newSpaceQueryService.GetRawViewModelByForm(form, cancellationToken);
         }
 
         [HttpGet]
@@ -56,7 +60,7 @@ namespace Space.Server.Controllers.ExternalResources
         [Route("[action]")]
         public async Task<ServerResult<bool>> RunSync(CancellationToken cancellationToken)
         {
-            await _newSpaceProcess.Sync(cancellationToken);
+            await _newSpaceProcess.Handle(new NsStartProcessRequest(), cancellationToken);
             return ServerResults.CachedTrue;
         }
     }

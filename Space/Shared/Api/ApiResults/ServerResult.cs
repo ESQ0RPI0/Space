@@ -19,9 +19,14 @@ namespace Space.Shared.Api.ApiResults
             Result = result;
         }
 
-        public ServerResult(ServerError error)
+        public ServerResult(ServerInformationAbstract information)
         {
-            Information = error;
+            Information = information;
+        }
+
+        public ServerResult(ServerError information)
+        {
+            Information = information;
         }
         public ServerResult(T result, string message, ServerMessageTypes type = ServerMessageTypes.None)
         {
@@ -31,7 +36,7 @@ namespace Space.Shared.Api.ApiResults
 
         public static implicit operator ServerResult<T>(T result) => new ServerResult<T>(result);
         public static implicit operator ServerResult<T>(ServerErrorCodes error) => new ServerResult<T>(error);
-        public static implicit operator ServerResult<T>(ServerError error) => new ServerResult<T>(error);
+        public static implicit operator ServerResult<T>(ServerInformationAbstract error) => new ServerResult<T>(error);
     }
 
     public class ServerError : ServerInformationAbstract

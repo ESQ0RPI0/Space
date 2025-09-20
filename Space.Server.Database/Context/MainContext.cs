@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Space.Server.Datamodel.DatabaseModels.Main.ETL;
 
 namespace Space.Server.Database.Context
 {
@@ -8,5 +9,7 @@ namespace Space.Server.Database.Context
         {
             
         }
+
+        public DbSet<ETLRequestDbModel> ETLRequests { get; set; }
     }
 }

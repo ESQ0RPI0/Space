@@ -24,5 +24,6 @@ namespace Space.Server.Datamodel.DatabaseModels.NewSpace
         public string Comment { get; set; }
         public string Photo { get; set; }
         public string? PhotoSource { get; set; }
+        public DateTime CreatedAt { get; set; }
     }
 }

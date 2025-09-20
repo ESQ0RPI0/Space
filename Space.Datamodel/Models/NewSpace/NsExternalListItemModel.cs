@@ -1,6 +1,4 @@
-﻿using static Space.Shared.Common.LaunchVehicleEnums;
-
-namespace Space.Backend.Datamodel.Models.NewSpace
+﻿namespace Space.Backend.Datamodel.Models.NewSpace
 {
     public class NsExternalListItemModel
     {

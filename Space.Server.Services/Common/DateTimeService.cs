@@ -1,4 +1,4 @@
-﻿using Space.Server.Services.Interfaces;
+﻿using Space.Server.Services.Interfaces.Common;
 
 namespace Space.Server.Services.Common
 {

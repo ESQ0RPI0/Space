@@ -32,7 +32,6 @@ namespace Space.Server.Services.Extensions
             services.AddSingleton(TimeProvider.System)
                 .AddScoped<DateTimeService>();
 
-
             services.AddStackExchangeRedisCache(options =>
             {
                 var conString = config.GetConnectionString("RedisConnection");

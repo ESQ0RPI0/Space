@@ -39,7 +39,8 @@ namespace Space.Server.AI.Logic.Services
             try
             {
                 var history = new ChatHistory();
-                history.AddSystemMessage($"Only use functions to get the data that needed to complete the request");
+                history.AddSystemMessage($"Only use functions to get the data for the request." +
+                    $" If there is none to fit the scope of the request - return null or default data");
                 history.AddUserMessage(prompt);
 
                 var chatService = _kernel.GetRequiredService<IChatCompletionService>();

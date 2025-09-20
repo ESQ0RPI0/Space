@@ -1,5 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Space.Server.Sync.Processes;
+using Space.Server.Sync.Interfaces;
+using Space.Server.Sync.Services;
+using System.Reflection;
 
 namespace Space.Server.Sync.Extensions
 {
@@ -7,7 +9,10 @@ namespace Space.Server.Sync.Extensions
     {
         public static IServiceCollection AddNewSpaceSync(this IServiceCollection services)
         {
-            services.AddScoped<NewSpaceSyncProcess>();
+            services.AddMediatR(cfg =>
+                cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
+
+            services.AddScoped<IPageLoadService, NewSpaceListLoadService>();
 
             return services;
         }

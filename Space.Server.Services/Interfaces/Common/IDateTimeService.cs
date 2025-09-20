@@ -1,4 +1,4 @@
-﻿namespace Space.Server.Services.Interfaces
+﻿namespace Space.Server.Services.Interfaces.Common
 {
     public interface IDateTimeService
     {

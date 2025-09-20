@@ -1,0 +1,1 @@
+Application for tracking and analyzing last information on space launch vehicles

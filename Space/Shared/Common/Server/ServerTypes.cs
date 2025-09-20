@@ -15,6 +15,7 @@ namespace Space.Shared.Common.Server
             WebResourceLoadError = 5,
             NewSpaceTargetTableNotFound = 6,
             EmailAlreadyInUse = 7,
+            EntityExist = 8
         }
 
         public enum ServerMessageTypes : byte

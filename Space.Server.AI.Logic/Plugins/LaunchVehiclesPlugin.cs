@@ -8,9 +8,9 @@ namespace Space.Server.AI.Logic.Plugins
 {
     public class LaunchVehiclesPlugin
     {
-        private readonly INewSpaceService _service;
+        private readonly INewSpaceQueryService _service;
 
-        public LaunchVehiclesPlugin(INewSpaceService service)
+        public LaunchVehiclesPlugin(INewSpaceQueryService service)
         {
             _service = service;
         }
@@ -20,7 +20,7 @@ namespace Space.Server.AI.Logic.Plugins
         public async Task<List<NsRawLaunchVehicleViewModel>> GetByCountry([Description("Name of the country")]string country,
             [Description("Token to cancel the operation")] CancellationToken cancellationToken = default)
         {
-            var result = await _service.GetByCountryAsync(country, cancellationToken);
+            var result = await _service.GetVehiclesByCountryAsync(country, cancellationToken);
 
             return result.Result;
         }

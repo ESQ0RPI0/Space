@@ -1,7 +1,10 @@
-﻿namespace Space.Server.Sync.Interfaces
+﻿using HtmlAgilityPack;
+using Space.Shared.Api.ApiResults;
+
+namespace Space.Server.Sync.Interfaces
 {
-    internal interface IPageLoadService
+    public interface IPageLoadService
     {
-        Task LoadAsync();
+        Task<ServerResult<HtmlDocument?>> LoadAsync(string url, CancellationToken cancellationToken);
     }
 }

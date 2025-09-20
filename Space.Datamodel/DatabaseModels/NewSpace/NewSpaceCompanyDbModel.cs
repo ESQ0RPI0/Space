@@ -17,5 +17,6 @@ namespace Space.Server.Datamodel.DatabaseModels.NewSpace
         public bool HasFunding { get; set; }
         public CountryName Country { get; set; }
         public string Founded { get; set; }
+        public DateTime CreatedAt { get; set; }
     }
 }

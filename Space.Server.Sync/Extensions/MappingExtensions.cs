@@ -82,6 +82,10 @@ namespace Space.Server.Sync.Extensions
                 .ForMember(u => u.Created, opts =>
                 {
                     opts.UseDestinationValue();
+                })
+                .ForMember(u => u.CreatedDate, opts =>
+                {
+                    opts.UseDestinationValue();
                 });
 
             CreateMap<NewSpaceExternalListItemDbModel, NsRawItemViewModel>();
