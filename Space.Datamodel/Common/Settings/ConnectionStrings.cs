@@ -5,6 +5,9 @@
     /// </summary>
     public class ConnectionStrings
     {
+        /// <summary>
+        /// New Space connection string
+        /// </summary>
         public string NewSpaceConnectionString { get; set; }
         public string SpaceFundConnectionString { get; set; }
     }
